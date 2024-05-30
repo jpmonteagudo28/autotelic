@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "autotelic",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "about",
+    "section": "",
+    "text": "A site dedicated to my programming and statistics learning journey. The goal is to read, summarize, explain and learn a wide variety of topics all related to programming, statistics, and occasionally, some unrelated subjects.\nThe goal is that, within a 12-month period, I’ll be able to learn from three good, solid books and use this newfound knowledge in my day–to–day life to create and improve something, however small it is. At the end of the year, I should see the tangible fruit of my labors, either virtually on the interweb or in physical form."
+  },
+  {
+    "objectID": "about/about.html",
+    "href": "about/about.html",
+    "title": "About",
+    "section": "",
+    "text": "A site dedicated to my programming and statistics learning journey. The goal is to read, summarize, explain and learn a wide variety of topics all related to programming, statistics, and occasionally, some unrelated subjects.\nThe goal is that, within a 12-month period, I’ll be able to learn from three good, solid books and use this new found knowledge in my day–to–day life to create and improve something, however small it is. At the end of the year, I should see the tangible fruit of my labors, either virtually on the interweb or in physical form."
+  }
+]

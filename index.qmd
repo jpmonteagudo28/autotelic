@@ -1,0 +1,15 @@
+---
+title: "autotelic"
+subtitle: "Always Learning–Sometimes Arriving"
+format:
+  html:
+    css: /html/style.css
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```

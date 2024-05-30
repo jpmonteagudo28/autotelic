@@ -1,0 +1,63 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "*.md"
+  resources:
+    - "assets/**"
+    
+execute:
+  freeze: auto
+
+website:
+  title: "autotelic"
+  favicon: "/assets/images/icon-512.png"
+  site-url: "https://www.learn.jpmonteagudo.com"
+  repo-url: "https://github.com/jpmonteagudo28/autotelic"
+  reader-mode: false
+  page-navigation: true
+  
+  google-analytics: "G-SM9D5VRX5P"
+
+  twitter-card: 
+    image: "/assets/images/icon-512.png"
+    card-style: summary_large_image
+    creator: "@jpPabl0"
+    site: "@jpPabl0"
+
+  open-graph: 
+    image: "/assets/images/icon-512.png"
+    locale: en_US
+    
+  navbar:
+    search: false
+    left:
+      - text: "about"
+        href: about/about.qmd
+      - text: designer
+        href: https://www.jpmonteagudo.com
+      - text: "Learn"
+        menu:
+          - text: Adv.R
+            href: learn/advanceR/index.qmd
+          - text: Epi
+            href: learn/epi/index.qmd
+            
+        
+    right:
+      - icon: github
+        aria-label: github
+        href: https://www.github.jpmonteagudo28/autotelic
+        rel: me
+            
+  
+format:
+  html:
+    theme: 
+      - html/jpm.scss
+    toc: true
+    highlight-style: a11y
+    code-link: true
+
+editor: visual
+
