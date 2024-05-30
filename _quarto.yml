@@ -30,24 +30,19 @@ website:
     locale: en_US
     
   navbar:
-    search: false
     left:
-      - text: "about"
-        href: about/about.qmd
-      - text: designer
-        href: https://www.jpmonteagudo.com
-      - text: "Learn"
-        menu:
-          - text: Adv.R
-            href: learn/advanceR/index.qmd
-          - text: Epi
-            href: learn/epi/index.qmd
+      - text: "r"
+        href: learn/advanceR/index.qmd
+      - text: "epi"
+        href: learn/epi/index.qmd
+      - text: "art"
+        href: learn/art/index.qmd
             
         
     right:
       - icon: github
         aria-label: github
-        href: https://www.github.jpmonteagudo28/autotelic
+        href: https://www.github.com/jpmonteagudo28/autotelic
         rel: me
             
   

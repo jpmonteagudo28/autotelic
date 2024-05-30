@@ -1,15 +1,13 @@
 ---
 title: "autotelic"
 subtitle: "Always Learning–Sometimes Arriving"
+date: "may, 2024"
+date-format: "MMM, YY"
 format:
   html:
     css: /html/style.css
 ---
 
-This is a Quarto website.
+A site dedicated to my programming and statistics learning journey. The goal is to read, summarize, explain and learn a wide variety of topics all related to programming, statistics, and occasionally, some unrelated subjects.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+The goal is that, within a 12-month period, I'll be able to learn from three good, solid books and use this new found knowledge in my day–to–day life to create and improve something, however small it is. At the end of the year, I should see the tangible fruit of my labors, either virtually on the interweb or in physical form.
