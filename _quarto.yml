@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
   render:
     - "*.qmd"
     - "*.md"
@@ -50,6 +51,11 @@ format:
   html:
     theme: 
       - html/jpm.scss
+    grid: 
+      body-width: 800px
+      sidebar-width: 250px
+      margin-width: 250px
+      gutter-width: 2.0em
     toc: true
     highlight-style: a11y
     code-link: true
