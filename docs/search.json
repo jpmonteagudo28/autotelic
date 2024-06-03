@@ -1,9 +1,51 @@
 [
   {
+    "objectID": "learn/epi/index.html",
+    "href": "learn/epi/index.html",
+    "title": "Epi & Stats",
+    "section": "",
+    "text": ":::{#quarto-listing-pipeline .hidden} \\(e = mC^2\\)\n:::{.hidden render-id=“pipeline-listing-books”}\n\n\n\n  &lt;div class=\"metadata\"&gt;\n    &lt;p class=\"book-title listing-title\"&gt;Deault Title Here&lt;/p&gt; &lt;!-- Display the book title --&gt;\n  &lt;/div&gt;\n  \n  &lt;div class=\"chapters\"&gt;\n     &lt;!-- Loop through each chapter in the book --&gt;\n      &lt;div class=\"chapter-entry\" data-index='1'&gt;\n        &lt;div class=\"body\"&gt;\n          &lt;p class=\"title listing-title\"&gt;&lt;a href=\"chapter1_3/index.qmd\"&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;\n\n\n\n          &lt;p class=\"description listing-description\"&gt;&lt;/p&gt;\n          \n          &lt;div class=\"date-container\"&gt;\n            &lt;p class=\"date listing-date\"&gt;&lt;/p&gt;\n          &lt;/div&gt;\n\n\n        &lt;/div&gt;\n        \n        \n      &lt;/div&gt;\n    \n  &lt;/div&gt;\n&lt;/div&gt;\n\n\nNo matching items\n\n:::\n:::"
+  },
+  {
+    "objectID": "learn/epi/index.html#epi-stats",
+    "href": "learn/epi/index.html#epi-stats",
+    "title": "Epi & Stats",
+    "section": "",
+    "text": ":::{#quarto-listing-pipeline .hidden} \\(e = mC^2\\)\n:::{.hidden render-id=“pipeline-listing-books”}\n\n\n\n  &lt;div class=\"metadata\"&gt;\n    &lt;p class=\"book-title listing-title\"&gt;Deault Title Here&lt;/p&gt; &lt;!-- Display the book title --&gt;\n  &lt;/div&gt;\n  \n  &lt;div class=\"chapters\"&gt;\n     &lt;!-- Loop through each chapter in the book --&gt;\n      &lt;div class=\"chapter-entry\" data-index='1'&gt;\n        &lt;div class=\"body\"&gt;\n          &lt;p class=\"title listing-title\"&gt;&lt;a href=\"chapter1_3/index.qmd\"&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;\n\n\n\n          &lt;p class=\"description listing-description\"&gt;&lt;/p&gt;\n          \n          &lt;div class=\"date-container\"&gt;\n            &lt;p class=\"date listing-date\"&gt;&lt;/p&gt;\n          &lt;/div&gt;\n\n\n        &lt;/div&gt;\n        \n        \n      &lt;/div&gt;\n    \n  &lt;/div&gt;\n&lt;/div&gt;\n\n\nNo matching items\n\n:::\n:::"
+  },
+  {
+    "objectID": "learn/art/index.html",
+    "href": "learn/art/index.html",
+    "title": "Arts & Thangs",
+    "section": "",
+    "text": ":::{#quarto-listing-pipeline .hidden} \\(e = mC^2\\)\n:::{.hidden render-id=“pipeline-listing-books”}\n\n\n\n  &lt;div class=\"metadata\"&gt;\n    &lt;p class=\"book-title listing-title\"&gt;Deault Title Here&lt;/p&gt; &lt;!-- Display the book title --&gt;\n  &lt;/div&gt;\n  \n  &lt;div class=\"chapters\"&gt;\n     &lt;!-- Loop through each chapter in the book --&gt;\n      &lt;div class=\"chapter-entry\" data-index='1'&gt;\n        &lt;div class=\"body\"&gt;\n          &lt;p class=\"title listing-title\"&gt;&lt;a href=\"chapter1_4/index.qmd\"&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;\n\n\n\n          &lt;p class=\"description listing-description\"&gt;&lt;/p&gt;\n          \n          &lt;div class=\"date-container\"&gt;\n            &lt;p class=\"date listing-date\"&gt;&lt;/p&gt;\n          &lt;/div&gt;\n\n\n        &lt;/div&gt;\n        \n        \n      &lt;/div&gt;\n    \n  &lt;/div&gt;\n&lt;/div&gt;\n\n\nNo matching items\n\n:::\n:::"
+  },
+  {
+    "objectID": "learn/art/index.html#art-thangs",
+    "href": "learn/art/index.html#art-thangs",
+    "title": "Arts & Thangs",
+    "section": "",
+    "text": ":::{#quarto-listing-pipeline .hidden} \\(e = mC^2\\)\n:::{.hidden render-id=“pipeline-listing-books”}\n\n\n\n  &lt;div class=\"metadata\"&gt;\n    &lt;p class=\"book-title listing-title\"&gt;Deault Title Here&lt;/p&gt; &lt;!-- Display the book title --&gt;\n  &lt;/div&gt;\n  \n  &lt;div class=\"chapters\"&gt;\n     &lt;!-- Loop through each chapter in the book --&gt;\n      &lt;div class=\"chapter-entry\" data-index='1'&gt;\n        &lt;div class=\"body\"&gt;\n          &lt;p class=\"title listing-title\"&gt;&lt;a href=\"chapter1_4/index.qmd\"&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;\n\n\n\n          &lt;p class=\"description listing-description\"&gt;&lt;/p&gt;\n          \n          &lt;div class=\"date-container\"&gt;\n            &lt;p class=\"date listing-date\"&gt;&lt;/p&gt;\n          &lt;/div&gt;\n\n\n        &lt;/div&gt;\n        \n        \n      &lt;/div&gt;\n    \n  &lt;/div&gt;\n&lt;/div&gt;\n\n\nNo matching items\n\n:::\n:::"
+  },
+  {
+    "objectID": "learn/advanceR/index.html",
+    "href": "learn/advanceR/index.html",
+    "title": "Topics in R Programming",
+    "section": "",
+    "text": ":::{#quarto-listing-pipeline .hidden} \\(e = mC^2\\)\n:::{.hidden render-id=“pipeline-listing-books”}\n\n\n\n  &lt;div class=\"metadata\"&gt;\n    &lt;p class=\"book-title listing-title\"&gt;Deault Title Here&lt;/p&gt; &lt;!-- Display the book title --&gt;\n  &lt;/div&gt;\n  \n  &lt;div class=\"chapters\"&gt;\n     &lt;!-- Check if chapters is an array --&gt;\n       &lt;!-- Loop through each chapter in the book --&gt;\n        &lt;div class=\"chapter-entry\" data-index='1'&gt;\n          &lt;div class=\"body\"&gt;\n            &lt;p class=\"title listing-title\"&gt;&lt;a href=\"chapter1_4/index.qmd\"&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;\n\n\n\n            &lt;p class=\"description listing-description\"&gt;&lt;/p&gt;\n            \n            &lt;div class=\"date-container\"&gt;\n              &lt;p class=\"date listing-date\"&gt;&lt;/p&gt;\n            &lt;/div&gt;\n\n\n          &lt;/div&gt;\n          \n          \n        &lt;/div&gt;\n      \n    \n  &lt;/div&gt;\n&lt;/div&gt;\n\n\nNo matching items\n\n:::\n:::"
+  },
+  {
+    "objectID": "learn/advanceR/index.html#programming",
+    "href": "learn/advanceR/index.html#programming",
+    "title": "Topics in R Programming",
+    "section": "",
+    "text": ":::{#quarto-listing-pipeline .hidden} \\(e = mC^2\\)\n:::{.hidden render-id=“pipeline-listing-books”}\n\n\n\n  &lt;div class=\"metadata\"&gt;\n    &lt;p class=\"book-title listing-title\"&gt;Deault Title Here&lt;/p&gt; &lt;!-- Display the book title --&gt;\n  &lt;/div&gt;\n  \n  &lt;div class=\"chapters\"&gt;\n     &lt;!-- Check if chapters is an array --&gt;\n       &lt;!-- Loop through each chapter in the book --&gt;\n        &lt;div class=\"chapter-entry\" data-index='1'&gt;\n          &lt;div class=\"body\"&gt;\n            &lt;p class=\"title listing-title\"&gt;&lt;a href=\"chapter1_4/index.qmd\"&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;\n\n\n\n            &lt;p class=\"description listing-description\"&gt;&lt;/p&gt;\n            \n            &lt;div class=\"date-container\"&gt;\n              &lt;p class=\"date listing-date\"&gt;&lt;/p&gt;\n            &lt;/div&gt;\n\n\n          &lt;/div&gt;\n          \n          \n        &lt;/div&gt;\n      \n    \n  &lt;/div&gt;\n&lt;/div&gt;\n\n\nNo matching items\n\n:::\n:::"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "autotelic",
     "section": "",
-    "text": "A site dedicated to my programming and statistics learning journey. The goal is to read, summarize, explain and learn a wide variety of topics all related to programming, statistics, and occasionally, some unrelated subjects.\nThe goal is that, within a 12-month period, I’ll be able to learn from three good, solid books and use this new found knowledge in my day–to–day life to create and improve something, however small it is. At the end of the year, I should see the tangible fruit of my labors, either virtually on the interweb or in physical form."
+    "text": "A site dedicated to my programming and statistics learning journey where I’ll record what I read, summarize, explain and learn from a wide variety of topics all related to programming, statistics, and occasionally, some other subjects.\nThe goal is that, within a 12-month period, I’ll be able to learn from three good, solid books and use this new found knowledge in my day–to–day life to create and improve something, however small it is. At the end of the year, I should see the tangible fruit of my labors, either virtually on the “interweb” or in physical form."
   }
 ]

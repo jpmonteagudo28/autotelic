@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://learn.jpmonteagudo.com/learn/epi/index.html</loc>
+    <lastmod>2024-06-02T23:50:47.983Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/art/index.html</loc>
+    <lastmod>2024-06-02T23:50:57.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/index.html</loc>
+    <lastmod>2024-06-02T23:50:59.188Z</lastmod>
+  </url>
+  <url>
     <loc>https://learn.jpmonteagudo.com/index.html</loc>
-    <lastmod>2024-05-31T13:13:44.830Z</lastmod>
+    <lastmod>2024-06-03T01:12:17.510Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/books/Adv_R/chapters1_4/index.html</loc>
+    <lastmod>2024-06-03T00:02:23.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/art/books/Elem_Typo/chapters1_4/index.html</loc>
+    <lastmod>2024-06-03T00:01:43.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/epi/books/Epi_by_Design/chapters1_3/index.html</loc>
+    <lastmod>2024-06-03T01:09:03.141Z</lastmod>
   </url>
 </urlset>

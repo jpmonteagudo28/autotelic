@@ -1,0 +1,31 @@
+---
+title: "Topics in R Programming"
+date: "may, 2024"
+date-format: "MMM, YY"
+format:
+  html:
+    css: style.css
+    grid:
+      body-width: 800px
+      sidebar-width: 250px
+citation: false
+code-tools: false
+comments: false
+engine: knitr
+freeze: false
+listing:
+  - id: books
+    contents: "/books/**/index.qmd"
+    feed: true
+    sort: false
+    template: ../../html/advanceR/listing.ejs
+    categories: false
+    max-items: 5
+    page-size: 5
+---
+
+## Programming
+
+::: {#books}
+:::
+
