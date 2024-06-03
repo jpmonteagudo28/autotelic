@@ -109,12 +109,14 @@ gtag('config', 'G-SM9D5VRX5P', { 'anonymize_ip': true});
 </style>
 <link rel="stylesheet" href="../../../../learn/style.css">
 <meta property="og:title" content="autotelic - Chapters 1–4">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://learn.jpmonteagudo.com/assets/images/icon-512.png">
 <meta property="og:site_name" content="autotelic">
 <meta property="og:locale" content="en_US">
 <meta property="og:image:height" content="348">
 <meta property="og:image:width" content="308">
 <meta name="twitter:title" content="autotelic - Chapters 1–4">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://learn.jpmonteagudo.com/assets/images/icon-512.png">
 <meta name="twitter:creator" content="@jpPabl0">
 <meta name="twitter:site" content="@jpPabl0">
@@ -163,7 +165,7 @@ gtag('config', 'G-SM9D5VRX5P', { 'anonymize_ip': true});
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block research default blog-post page-columns page-full"><div class="quarto-title-banner page-columns page-full">
                 <div class="quarto-title column-body">
-            <div class="quarto-title-block"><div><h1 class="title">Chapters 1–4</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+            <div class="quarto-title-block"><div><h1 class="title">Chapters 1–4</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
             
             
@@ -179,38 +181,51 @@ gtag('config', 'G-SM9D5VRX5P', { 'anonymize_ip': true});
     
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content"><section id="whats-in-a-name" class="level2"><h2 class="anchored" data-anchor-id="whats-in-a-name">What’s in a name?</h2>
-<section id="subheading-here" class="level3"><h3 class="anchored" data-anchor-id="subheading-here">Subheading Here</h3>
+<p>If you’d like to know your way around the programming environment, you first have to understand how R’s OOP works. Binding is one of the most basic functions performed in <code>R</code>.So let’s start there:</p>
 <div class="cell" data-layout-align="center">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(polycor)</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Let's create some made-up factor variables, Quality of Product </span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># and Performance of the product on a scale from 1 - 5 and 1 - 4. </span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Qual =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">each =</span> <span class="dv">20</span>), </span>
-<span id="cb1-7"><a href="#cb1-7"></a>                          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Strongly Agree"</span>, </span>
-<span id="cb1-8"><a href="#cb1-8"></a>                                     <span class="st">"Agree"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9"></a>                                     <span class="st">"Neutral"</span>, </span>
-<span id="cb1-10"><a href="#cb1-10"></a>                                     <span class="st">"Disagree"</span>, </span>
-<span id="cb1-11"><a href="#cb1-11"></a>                                    <span class="st">"Strongly Disagree"</span>)),</span>
-<span id="cb1-12"><a href="#cb1-12"></a>                 <span class="at">Perform =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">each =</span> <span class="dv">25</span>), </span>
-<span id="cb1-13"><a href="#cb1-13"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Very Low"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14"></a>                                        <span class="st">"Low"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15"></a>                                        <span class="st">"Medium"</span>,</span>
-<span id="cb1-16"><a href="#cb1-16"></a>                                        <span class="st">"High"</span>)))</span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># Now let's calculate the correlation between these two variables</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a>poly_cor <span class="ot">&lt;-</span> polycor<span class="sc">::</span><span class="fu">polychor</span>(df<span class="sc">$</span>Qual, df<span class="sc">$</span>Perform, <span class="at">ML =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="co"># [1] .993 This is the correlation estimate for our data. </span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co"># Performance and Quality are strongly correlated. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">## [1] 1 2 3 4 5 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>This code is creating an object, a vector with 6 elements. This object is then bound to the name <code>x</code>. R assigns values to a name, and not vice-versa. The name is acts as a reference to the values 1 through 6. This concept is clearly demonstrated by binding the existing values in x to y. This action doesn’t create a copy of <code>(1:6)</code>, but binds the values to a new name <code>y</code>. This doesn’t mean that you won’t see two names in your environment, instead, it shows that <code>y</code> is also referencing the sames values, <code>(1:6)</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How do we know this? Well, we can access the object’s identifier to make sure both <code>x</code> and <code>y</code> point to the same object <code>(1:6)</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/obj_addr.html">obj_addr</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] "0x26ed68f2d38"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/obj_addr.html">obj_addr</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] "0x26ed68f2d38"</span></span>
+<span></span>
+<span><span class="co">## Another example of this behavior</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/obj_addr.html">obj_addr</a></span><span class="op">(</span><span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] "0x26ed2bedc98"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/obj_addr.html">obj_addr</a></span><span class="op">(</span><span class="fu">base</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] "0x26ed2bedc98"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">lobstr</span><span class="fu">::</span><span class="fu"><a href="https://lobstr.r-lib.org/reference/obj_addr.html">obj_addr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/match.fun.html">match.fun</a></span><span class="op">(</span><span class="st">"mean"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] "0x26ed2bedc98"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="use-syntactic-names" class="level3"><h3 class="anchored" data-anchor-id="use-syntactic-names">Use syntactic names</h3>
+<p>The naming possibilities seem endless, but they’re actually limited. Always use syntactic names that consists of letters, digits, <code>.</code> and <code>_</code>. You can’t begin with <code>_</code> or a digit, and can’t use any <strong>reserved words</strong> like <code>TRUE</code>, <code>FALSE</code>,<code>NULL</code>,<code>if</code>, and <code>function</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. To override these rules, you have to surround the name in back–ticks.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">`function`</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="st">"advance"</span>,<span class="st">"R"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">`function`</span><span class="op">)</span></span>
+<span><span class="co">## [1] "1"       "2"       "3"       "advance" "R"</span></span>
+<span></span>
+<span><span class="va">`if`</span> <span class="op">&lt;-</span> <span class="fl">1e+7</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">`if`</span><span class="op">)</span></span>
+<span><span class="co">## [1] 1e+07</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>R will automatically convert non–syntactic names</p>
 
 
 <!-- -->
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section><div id="quarto-appendix"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p>Check out the complete list in <code><a href="https://rdrr.io/r/base/Reserved.html">?Reserved</a></code><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -648,62 +663,75 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Chapters 1–4"</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="an">date:</span><span class="co"> now</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="an">format:</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  html:</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">    css: /learn/style.css</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    code-fold: true</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">    code-tools: true</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">    code-line-numbers: true</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#doi: 10.59350/wx5k1-ajc38</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="an">citation:</span><span class="co"> false</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#draft: true</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="an">haiku:</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">  - What's in a name?</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">  - That which we call a rose</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">  - by any other name would smell as sweet.</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="co">---</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="in">knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="in">                      fig.width = 5.5, fig.height = (5.5 * 0.618),</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="in">                      out.width = "90%", collapse = TRUE)</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="in">options(digits = 3, width = 300)</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="in">```</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a></span>
-<span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="fu">## What's in a name?</span></span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="fu">### Subheading Here</span></span>
-<span id="cb2-31"><a href="#cb2-31"></a></span>
-<span id="cb2-32"><a href="#cb2-32"></a><span class="in">```{r, echo = T}</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a><span class="in">library(polycor)</span></span>
-<span id="cb2-34"><a href="#cb2-34"></a></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="in"># Let's create some made-up factor variables, Quality of Product </span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="in"># and Performance of the product on a scale from 1 - 5 and 1 - 4. </span></span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="in">df &lt;- data.frame(Qual = factor(rep(1:5,each = 20), </span></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="in">                          labels = c("Strongly Agree", </span></span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="in">                                     "Agree",</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="in">                                     "Neutral", </span></span>
-<span id="cb2-42"><a href="#cb2-42"></a><span class="in">                                     "Disagree", </span></span>
-<span id="cb2-43"><a href="#cb2-43"></a><span class="in">                                    "Strongly Disagree")),</span></span>
-<span id="cb2-44"><a href="#cb2-44"></a><span class="in">                 Perform = factor(rep(1:4, each = 25), </span></span>
-<span id="cb2-45"><a href="#cb2-45"></a><span class="in">                             labels = c("Very Low",</span></span>
-<span id="cb2-46"><a href="#cb2-46"></a><span class="in">                                        "Low",</span></span>
-<span id="cb2-47"><a href="#cb2-47"></a><span class="in">                                        "Medium",</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a><span class="in">                                        "High")))</span></span>
-<span id="cb2-49"><a href="#cb2-49"></a></span>
-<span id="cb2-50"><a href="#cb2-50"></a><span class="in"># Now let's calculate the correlation between these two variables</span></span>
-<span id="cb2-51"><a href="#cb2-51"></a></span>
-<span id="cb2-52"><a href="#cb2-52"></a><span class="in">poly_cor &lt;- polycor::polychor(df$Qual, df$Perform, ML = FALSE)</span></span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a><span class="in"># [1] .993 This is the correlation estimate for our data. </span></span>
-<span id="cb2-55"><a href="#cb2-55"></a><span class="in"># Performance and Quality are strongly correlated. </span></span>
-<span id="cb2-56"><a href="#cb2-56"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Chapters 1–4"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    css: /learn/style.css</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-line-numbers: false</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#doi: 10.59350/wx5k1-ajc38</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span><span class="co"> false</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#draft: true</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="an">haiku:</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - What's in a name?</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - That which we call a rose</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">  - by any other name would smell as sweet.</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="in">                      fig.width = 5.5, fig.height = (5.5 * 0.618),</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="in">                      out.width = "90%", collapse = TRUE)</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="in">options(digits = 3, width = 300)</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="in">library(lobstr)</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## What's in a name?</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>If you'd like to know your way around the programming environment, you first have to understand how R's OOP works. Binding is one of the most basic functions performed in <span class="in">`R`</span>.So let's start there:</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>This code is creating an object, a vector with 6 elements. This object is then bound to the name <span class="in">`x`</span>. R assigns values to a name, and not vice-versa. The name is acts as a reference to the values 1 through 6. This concept is clearly demonstrated by binding the existing values in x to y. This action doesn't create a copy of <span class="in">`(1:6)`</span>, but binds the values to a new name <span class="in">`y`</span>. This doesn't mean that you won't see two names in your environment, instead, it shows that <span class="in">`y`</span> is also referencing the sames values, <span class="in">`(1:6)`</span>.</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>How do we know this? Well, we can access the object's identifier to make sure both <span class="in">`x`</span> and <span class="in">`y`</span> point to the same object <span class="in">`(1:6)`</span>.</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lobstr<span class="sc">::</span><span class="fu">obj_addr</span>(x))</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lobstr<span class="sc">::</span><span class="fu">obj_addr</span>(y))</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="do">## Another example of this behavior</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lobstr<span class="sc">::</span><span class="fu">obj_addr</span>(mean))</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lobstr<span class="sc">::</span><span class="fu">obj_addr</span>(base<span class="sc">::</span>mean))</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lobstr<span class="sc">::</span><span class="fu">obj_addr</span>(<span class="fu">match.fun</span>(<span class="st">"mean"</span>)))</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Use syntactic names</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>The naming possibilities seem endless, but they're actually limited. Always use syntactic names that consists of letters, digits, <span class="in">`.`</span> and <span class="in">`_`</span>. You can't begin with <span class="in">`_`</span> or a digit, and can't use any **reserved words** like <span class="in">`TRUE`</span>, <span class="in">`FALSE`</span>,<span class="in">`NULL`</span>,<span class="in">`if`</span>, and <span class="in">`function`</span>^<span class="co">[</span><span class="ot">Check out the complete list in `?Reserved`</span><span class="co">]</span>. To override these rules, you have to surround the name in back–ticks. </span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">function</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="st">"advance"</span>,<span class="st">"R"</span>)</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">`</span><span class="at">function</span><span class="st">`</span>)</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">if</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fl">1e+7</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">`</span><span class="at">if</span><span class="st">`</span>)</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>R will automatically convert non–syntactic names</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

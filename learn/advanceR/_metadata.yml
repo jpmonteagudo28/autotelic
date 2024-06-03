@@ -14,8 +14,6 @@ format:
 
 # Default for table of contents
 toc: false
-#toc-title: Contents
-#toc-location: left
 
 # Default fields for citation
 citation: false
