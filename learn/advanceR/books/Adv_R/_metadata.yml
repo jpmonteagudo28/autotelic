@@ -1,0 +1,5 @@
+title: "Advanced R"
+chapters:
+  - title: "Chapter 1"
+    path: "chapter1_4/index.qmd"
+

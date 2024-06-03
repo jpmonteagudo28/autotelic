@@ -1,0 +1,45 @@
+<div class="list book">
+  <% for (const book of items) { %> <!-- Loop through each book -->
+    <div class="book-entry" <%= metadataAttrs(book) %>>
+      <div class="metadata">
+        <p class="book-title listing-title"><%= book.title %></p> <!-- Display the book title -->
+      </div>
+      
+      <div class="chapters">
+        <% for (const chapter of book.chapters) { %> <!-- Loop through each chapter in the book -->
+          <div class="chapter-entry" <%= metadataAttrs(chapter) %>>
+            <div class="body">
+              <p class="title listing-title"><a href="<%- chapter.path %>"><%= chapter.title %></a></p>
+
+              <% if (chapter.categories) { %>
+                <div class="chapter-categories listing-categories">
+                  <% for (const category of chapter.categories) { %>
+                    <div class="chapter-category listing-category" onclick="window.quartoListingCategory('<%=category%>'); return false;">
+                      <%= category %>
+                    </div>
+                  <% } %>
+                </div>
+              <% } %>
+
+              <p class="description listing-description"><%= chapter.description %></p>
+              
+              <div class="date-container">
+                <p class="date listing-date"><%= chapter.date %></p>
+              </div>
+
+              <% if (chapter.doi) { %>
+                <p class="chapter-doi"><img src="/files/doi.svg" class="doi-icon img-fluid" alt="DOI"/> <a href="https://doi.org/<%= chapter.doi %>" target="_blank" rel="noopener noreferrer"><%= chapter.doi %></a></p>
+              <% } %>
+            </div>
+            
+            <% if (chapter.image) { %>
+              <div class="thumbnail">
+                <img src="<%= chapter.image %>" alt="<%= chapter.title %>" title="<%= chapter.title %>" />
+              </div>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+</div>

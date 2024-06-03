@@ -1,0 +1,36 @@
+# Date format
+date-format: "MMM, YY"
+
+# Enable banner style title blocks
+title-block-banner: false
+# Add blog-post class to the banner header area
+format: 
+  html:
+    code-tools: true
+    quarto-template-params:
+      banner-header-class: "blog-post"
+
+# Default for table of contents
+toc: false
+#toc-title: Contents
+#toc-location: left
+
+# Default fields for citation
+citation: false
+appendix-cite-as: display
+appendix-style: plain
+
+freeze: true
+
+# Default knitr options
+execute:
+  echo: true
+  message: false
+  warning: false
+
+include-back-link: true
+
+# Default author
+author:
+  - name: JP Monteagudo
+    url: https://www.jpmonteagudo.com/

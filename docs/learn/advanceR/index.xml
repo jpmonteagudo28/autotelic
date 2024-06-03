@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>autotelic</title>
+<link>https://learn.jpmonteagudo.com/learn/advanceR/</link>
+<atom:link href="https://learn.jpmonteagudo.com/learn/advanceR/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.4.550</generator>
+<lastBuildDate>Mon, 03 Jun 2024 01:12:33 GMT</lastBuildDate>
+<item>
+  <title>Deault Title Here</title>
+  <dc:creator>JP Monteagudo</dc:creator>
+  <link>https://learn.jpmonteagudo.com/learn/advanceR/books/Adv_R/chapters1_4/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="custom-heading-here" class="level2">
+
+<section id="subheading-here" class="level3">
+
+
+
+<!-- -->
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://learn.jpmonteagudo.com/learn/advanceR/books/Adv_R/chapters1_4/</guid>
+  <pubDate>Mon, 03 Jun 2024 01:12:33 GMT</pubDate>
+</item>
+</channel>
+</rss>
