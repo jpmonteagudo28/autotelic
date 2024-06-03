@@ -73,9 +73,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-execute','listing-website','listing-format','listing-editor','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-citation','listing-appendix-cite-as','listing-appendix-style','listing-freeze','listing-include-back-link','listing-title','listing-date','listing-description','listing-draft','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-execute','listing-website','listing-format','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-citation','listing-appendix-cite-as','listing-appendix-style','listing-freeze','listing-include-back-link','listing-title','listing-date','listing-haiku','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-execute","listing-website","listing-format","listing-editor","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-citation","listing-appendix-cite-as","listing-appendix-style","listing-freeze","listing-include-back-link","listing-title","listing-date","listing-description","listing-draft","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-project","listing-execute","listing-website","listing-format","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-citation","listing-appendix-cite-as","listing-appendix-style","listing-freeze","listing-include-back-link","listing-title","listing-date","listing-haiku","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -182,22 +182,16 @@ window.Quarto = {
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default blog-post page-columns page-full"><div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Programming</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block research default blog-post page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+                <div class="quarto-title column-body">
+            <h1 class="title">Programming</h1>
 
-      
-    
-      
+            
+            
+            
+                    </div>
     </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+</header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -213,17 +207,36 @@ window.Quarto = {
 <div id="listing-chapters" class="quarto-listing quarto-listing-container-custom">
 <div class="list blog">
     
-    <div class="blog-entry" data-index="0" data-listing-date-sort="1717427710000" data-listing-file-modified-sort="1717427565924" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="3">
+    <div class="blog-entry" data-index="0" data-listing-date-sort="1717443332000" data-listing-file-modified-sort="1717443247057" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="496">
         <div class="metadata">          
             <p class="date listing-date">Jun, 24</p>
         </div>
         <div class="body">
-            <p class="title listing-title"><a href="../../learn/advanceR/advanceR/chap1_4/index.html">Default Title Here</a></p>
+            <p class="title listing-title"><a href="../../learn/advanceR/advanceR/chap1_4/index.html">Chapters 1–4</a></p>
 
             
 
-            <p class="description listing-description">Subtitle Here</p>
+            <p class="description listing-description">
+<section id="subheading-here" class="level3">
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu">library</span>(polycor)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co"># Let's create some made-up factor variables, Quality of Product </span></span>
+<span id="cb1-4"><span class="co"># and Performance of the product on a scale from 1 - 5 and 1 - 4. </span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6">df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>…<span class="at"></span><span class="fu"></span><span class="fu"></span><span class="dv"></span><span class="sc"></span><span class="dv"></span><span class="at"></span><span class="dv"></span></span><span id="cb1-7"><span class="at"></span><span class="fu"></span><span class="st"></span></span><span id="cb1-8"><span class="st"></span></span><span id="cb1-9"><span class="st"></span></span><span id="cb1-10"><span class="st"></span></span><span id="cb1-11"><span class="st"></span></span><span id="cb1-12"><span class="at"></span><span class="fu"></span><span class="fu"></span><span class="dv"></span><span class="sc"></span><span class="dv"></span><span class="at"></span><span class="dv"></span></span><span id="cb1-13"><span class="at"></span><span class="fu"></span><span class="st"></span></span><span id="cb1-14"><span class="st"></span></span><span id="cb1-15"><span class="st"></span></span><span id="cb1-16"><span class="st"></span></span><span id="cb1-17"></span><span id="cb1-18"><span class="co"></span></span><span id="cb1-19"></span><span id="cb1-20"><span class="ot"></span><span class="sc"></span><span class="fu"></span><span class="sc"></span><span class="sc"></span><span class="at"></span><span class="cn"></span></span><span id="cb1-21"></span><span id="cb1-22"><span class="co"></span></span><span id="cb1-23"><span class="co"></span></span></code></pre></div></details></div><!-- --></section></p>
             
+            
+        </div>
+        
+        
+        <div class="haiku">
+            
+                What's in a name?
+            
+                 / That which we call a rose
+            
+                 / by any other name would smell as sweet.
             
         </div>
         

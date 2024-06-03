@@ -1,7 +1,6 @@
 ---
-title: "Default Title Here"
+title: "Chapters 1–4"
 date: now
-description: "Subtitle Here"
 format:
   html:
     css: /learn/style.css
@@ -11,9 +10,47 @@ format:
     code-line-numbers: true
 #doi: 10.59350/wx5k1-ajc38
 citation: false
-draft: false
+#draft: true
+haiku:
+  - What's in a name?
+  - That which we call a rose
+  - by any other name would smell as sweet.
 ---
 
-## Custom Heading here
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,
+                      fig.width = 5.5, fig.height = (5.5 * 0.618),
+                      out.width = "90%", collapse = TRUE)
+options(digits = 3, width = 300)
+```
+
+
+## What's in a name?
 
 ### Subheading Here
+
+```{r, echo = T}
+library(polycor)
+
+# Let's create some made-up factor variables, Quality of Product 
+# and Performance of the product on a scale from 1 - 5 and 1 - 4. 
+
+df <- data.frame(Qual = factor(rep(1:5,each = 20), 
+                          labels = c("Strongly Agree", 
+                                     "Agree",
+                                     "Neutral", 
+                                     "Disagree", 
+                                    "Strongly Disagree")),
+                 Perform = factor(rep(1:4, each = 25), 
+                             labels = c("Very Low",
+                                        "Low",
+                                        "Medium",
+                                        "High")))
+
+# Now let's calculate the correlation between these two variables
+
+poly_cor <- polycor::polychor(df$Qual, df$Perform, ML = FALSE)
+
+# [1] .993 This is the correlation estimate for our data. 
+# Performance and Quality are strongly correlated. 
+```

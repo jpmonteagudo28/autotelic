@@ -7,8 +7,9 @@ $brand-color: #DFE8F3;
 $highlight: lighten($brand-color, 35%);
 $text-color: #7C225C;
 $muted-text-color: #373a3c;
-$code-gray: #eeeeee !default;
+$code-blue: #D9E8F3 !default;
 $rose: #c7254e !default;
+$dad: #dad;
 $font-family: "Reforma1918" !default;
 $code-font-family: "Source Code Pro" !default;
 
@@ -123,10 +124,10 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,w
     color: $text-color;
   }
 
-  .navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
+  .aa-SubmitIcon {
     width: 26px;
     height: 26px;
-    color: darken($brand-color, 50%);
+    color: $brand-color;
     opacity: 1;
   }
 
@@ -168,7 +169,7 @@ pre.text, pre.sourceCode, .cell-output pre {
   font-weight: 400;
   font-optical-sizing: auto;
   color: $rose;
-  background-color: $code-gray;
+  background-color: $code-blue;
   border-radius: 5px;
 }
 
@@ -268,17 +269,34 @@ pre.text, pre.sourceCode, .cell-output pre {
 }
 
 /* Post */
-.post {
-  background: #f9f9f9;
+
+.quarto-title-block .haiku {
+    text-align: right;
+    margin: 1.3em 0;
+    font-size: 1em;
+    font-weight: 300;
+    font-style: italic;
+    color: $text-color;
+}
+
+
+body {
+  background: $brand-color;
+  color: $muted-text-color;
+  font-family: $font-family;
+  font-size: 1.325em;
+  line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
   margin: 2em auto;
-  max-width: 60rem;
+  max-width: 68rem;
   padding: 2em 0;
-  box-shadow: 12px 18px 24px rgba(darken($brand-color, 50%), .1);
+  box-shadow: 6px 18px 48px rgba(darken($brand-color, 50%), .1);
 
   > * {
     margin-left: auto;
     margin-right: auto;
-    max-width: 36rem;
+    max-width: 65rem;
     padding: 0 1em;
   }
 
@@ -336,15 +354,6 @@ pre.text, pre.sourceCode, .cell-output pre {
 }
 
 /* Body */
-body {
-  background: $brand-color;
-  color: $muted-text-color;
-  font-family: $font-family;
-  font-size: 1.325em;
-  line-height: 1.5;
-  text-align: justify;
-  hyphens: auto;
-}
 
 h1 {
   font-size: 3em;
@@ -354,34 +363,34 @@ h1 {
 h2 {
   font-size: 2em;
   margin: 1em auto;
-  text-align: center;
+  text-align: left;
 }
 
 h3 {
   font-size: 1.5em;
   margin: 1.3333em auto;
-  text-align: center;
+  text-align: left;
 }
 
 h4 {
   font-size: 1.25em;
   font-style: italic;
   margin: 1.875em auto;
-  text-align: center;
+  text-align: left;
 }
 
 h5 {
   font-size: 1em;
   font-style: italic;
   margin: 2em auto;
-  text-align: center;
+  text-align: left;
 }
 
 h6 {
   font-size: .875em;
   font-style: italic;
   margin: 2.25em auto;
-  text-align: center;
+  text-align: left;
 }
 
 em {
