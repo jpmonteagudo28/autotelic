@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://learn.jpmonteagudo.com/learn/epi/index.html</loc>
+    <lastmod>2024-06-03T15:13:28.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/art/taoc/chap1_2/index.html</loc>
+    <lastmod>2024-06-03T12:54:31.896Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/index.html</loc>
+    <lastmod>2024-06-03T15:15:06.561Z</lastmod>
+  </url>
+  <url>
     <loc>https://learn.jpmonteagudo.com/index.html</loc>
-    <lastmod>2024-05-31T13:13:44.830Z</lastmod>
+    <lastmod>2024-06-03T14:58:55.544Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/advanceR/chap1_4/index.html</loc>
+    <lastmod>2024-06-03T14:57:20.420Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/art/index.html</loc>
+    <lastmod>2024-06-03T15:15:23.413Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/epi/epi_des/chap1_2/index.html</loc>
+    <lastmod>2024-06-03T12:55:05.034Z</lastmod>
   </url>
 </urlset>
