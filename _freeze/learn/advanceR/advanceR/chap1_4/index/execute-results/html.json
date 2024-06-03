@@ -1,0 +1,15 @@
+{
+  "hash": "93aefd6faca561f46768673d498c244c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Chapters 1–4\"\ndate: now\nformat:\n  html:\n    css: /learn/style.css\n    code-fold: true\n    code-tools: true\n    code-overflow: wrap\n    code-line-numbers: true\n#doi: 10.59350/wx5k1-ajc38\ncitation: false\n#draft: true\nhaiku:\n  - What's in a name?\n  - That which we call a rose\n  - by any other name would smell as sweet.\n---\n\n\n\n\n\n## What's in a name?\n\n### Subheading Here\n\n\n::: {.cell layout-align=\"center\"}\n\n```{.r .cell-code}\nlibrary(polycor)\n\n# Let's create some made-up factor variables, Quality of Product \n# and Performance of the product on a scale from 1 - 5 and 1 - 4. \n\ndf <- data.frame(Qual = factor(rep(1:5,each = 20), \n                          labels = c(\"Strongly Agree\", \n                                     \"Agree\",\n                                     \"Neutral\", \n                                     \"Disagree\", \n                                    \"Strongly Disagree\")),\n                 Perform = factor(rep(1:4, each = 25), \n                             labels = c(\"Very Low\",\n                                        \"Low\",\n                                        \"Medium\",\n                                        \"High\")))\n\n# Now let's calculate the correlation between these two variables\n\npoly_cor <- polycor::polychor(df$Qual, df$Perform, ML = FALSE)\n\n# [1] .993 This is the correlation estimate for our data. \n# Performance and Quality are strongly correlated. \n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
