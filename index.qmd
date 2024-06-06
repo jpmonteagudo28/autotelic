@@ -1,6 +1,6 @@
 ---
 title: "autotelic"
-subtitle: "Always Learning–Sometimes Arriving"
+subtitle: "Always Learning–Sometimes Arriving."
 date: "may, 2024"
 date-format: "MMM, YY"
 format:
