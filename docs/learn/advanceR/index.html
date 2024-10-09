@@ -73,15 +73,37 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-<<<<<<< HEAD
-      valueNames: ['listing-project','listing-execute','listing-website','listing-format','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-citation','listing-appendix-cite-as','listing-appendix-style','listing-freeze','listing-include-back-link','listing-title','listing-date','listing-draft','listing-haiku','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-project","listing-execute","listing-website","listing-format","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-citation","listing-appendix-cite-as","listing-appendix-style","listing-freeze","listing-include-back-link","listing-title","listing-date","listing-draft","listing-haiku","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
-=======
-      valueNames: [{ data: ['index'] },{ data: ['categories'] }],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-chapters'] = new List('listing-chapters', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-chapters .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-project','listing-execute','listing-website','listing-format','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-citation','listing-appendix-cite-as','listing-appendix-style','listing-freeze','listing-include-back-link','listing-title','listing-date','listing-draft','listing-haiku','listing-lightbox','listing-editor','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: [],
->>>>>>> 609749c05bec804745b20092dcac0e746cf6b266
+      searchColumns: ["listing-project","listing-execute","listing-website","listing-format","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-citation","listing-appendix-cite-as","listing-appendix-style","listing-freeze","listing-include-back-link","listing-title","listing-date","listing-draft","listing-haiku","listing-lightbox","listing-editor","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -210,20 +232,19 @@ window.Quarto = {
 </style>
 </div>
 <section id="advanced-r" class="level2"><h2 class="anchored" data-anchor-id="advanced-r">Advanced R</h2>
-<div id="listing-chapters" class="quarto-listing quarto-listing-container-custom">
+<div id="listing-chapters" class="quarto-listing quarto-listing-container-default">
 <div class="list blog">
     
-<<<<<<< HEAD
-    <div class="blog-entry" data-index="0" data-listing-date-sort="1728412905000" data-listing-file-modified-sort="1728396843071" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2891">
+    <div class="blog-entry" data-index="0" data-listing-date-sort="1728492338000" data-listing-file-modified-sort="1728491633893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3184">
         <div class="metadata">          
             <p class="date listing-date">Oct, 24</p>
         </div>
         <div class="body">
-            <p class="title listing-title"><a href="../../learn/advanceR/advanceR/chap1_3/index.html">Chapters 1–3</a></p>
+            <p class="title listing-title"><a href="../../learn/advanceR/Stat_Rethinking/ch1_3/index.html">Chapters 1–2</a></p>
 
             
 
-            <p class="description listing-description"></p>
+            <p class="description listing-description">The Golem of Prague - Jewish mythical creature that is awakened and commanded by truth but lacks wisdom. Its lack of discernment renders him dangerous and vulnerable to the…</p>
             
             
         </div>
@@ -231,26 +252,56 @@ window.Quarto = {
         
         <div class="haiku">
             
-                What's in a name?
+                Thought you were normal
             
-                 / That which we call a rose
+                 / but Bayes says you're different;
             
-                 / by any other name would smell as sweet.
+                 / heart's torn, you or him.
             
         </div>
         
     </div>
     
-=======
->>>>>>> 609749c05bec804745b20092dcac0e746cf6b266
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
 </div>
 </section><section id="statistical-rethinking" class="level2"><h2 class="anchored" data-anchor-id="statistical-rethinking">Statistical Rethinking</h2>
-<div id="chapters">
+<div id="listing-chapters" class="quarto-listing quarto-listing-container-custom">
+<div class="list blog">
+    
+    <div class="blog-entry" data-index="0" data-listing-date-sort="1728492338000" data-listing-file-modified-sort="1728491633893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3184">
+        <div class="metadata">          
+            <p class="date listing-date">Oct, 24</p>
+        </div>
+        <div class="body">
+            <p class="title listing-title"><a href="../../learn/advanceR/Stat_Rethinking/ch1_3/index.html">Chapters 1–2</a></p>
 
+            
+
+            <p class="description listing-description">The Golem of Prague - Jewish mythical creature that is awakened and commanded by truth but lacks wisdom. Its lack of discernment renders him dangerous and vulnerable to the…</p>
+            
+            
+        </div>
+        
+        
+        <div class="haiku">
+            
+                Thought you were normal
+            
+                 / but Bayes says you're different;
+            
+                 / heart's torn, you or him.
+            
+        </div>
+        
+    </div>
+    
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
 </div>
 
 

@@ -15,9 +15,9 @@ engine: knitr
 freeze: false
 listing:
   - id: chapters
-    contents: 
-      - "/advanceR/**/index.qmd"
-      - "/Stat_Rethinking/**/index.qmd"
+    contents:  "/advanceR/**/index.qmd"
+  - id: chapters
+    contents:  "/Stat_Rethinking/**/index.qmd"
     feed: true
     sort: false
     template: ../../html/learn/listing.ejs

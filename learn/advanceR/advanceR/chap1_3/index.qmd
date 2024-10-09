@@ -11,7 +11,7 @@ format:
     code-line-numbers: false
 #doi: 10.59350/wx5k1-ajc38
 citation: false
-draft: true
+draft: false
 haiku:
   - What's in a name?
   - That which we call a rose

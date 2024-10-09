@@ -1,24 +1,21 @@
 [
   {
-    "listing": "/learn/art/index.html",
+    "listing": "/learn/epi/index.html",
     "items": [
-      "/learn/art/taoc/chap1_2/index.html"
+      "/learn/epi/epi_des/chap1_2/index.html"
     ]
-  },
-  {
-    "listing": "/learn/Stat_Rethinking/index.html",
-    "items": []
   },
   {
     "listing": "/learn/advanceR/index.html",
     "items": [
-      "/learn/advanceR/advanceR/chap1_3/index.html"
+      "/learn/advanceR/advanceR/chap1_3/index.html",
+      "/learn/advanceR/Stat_Rethinking/ch1_3/index.html"
     ]
   },
   {
-    "listing": "/learn/epi/index.html",
+    "listing": "/learn/art/index.html",
     "items": [
-      "/learn/epi/epi_des/chap1_2/index.html"
+      "/learn/art/taoc/chap1_2/index.html"
     ]
   }
 ]

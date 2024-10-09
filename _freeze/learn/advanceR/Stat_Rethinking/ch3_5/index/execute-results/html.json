@@ -1,0 +1,15 @@
+{
+  "hash": "73f7a4c243f1522488efbb555567fb55",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Chapters 3 - 4\"\ndate: now\nformat:\n  html:\n    css: /learn/style.css\n    code-fold: false\n    code-link: true\n    code-tools: true\n    code-overflow: wrap\n    code-line-numbers: false\ncitation: false\ndraft: true\nhaiku:\n  - Thought you were normal\n  - but Bayes says you're different;\n  - heart's torn, you or him.\nlightbox: true\neditor: \n  markdown: \n    wrap: 72\n---\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

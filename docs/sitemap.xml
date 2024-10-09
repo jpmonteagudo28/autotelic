@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://learn.jpmonteagudo.com/learn/art/index.html</loc>
-    <lastmod>2024-06-03T15:15:23.413Z</lastmod>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/advanceR/chap1_3/index.html</loc>
+    <lastmod>2024-10-09T16:33:48.899Z</lastmod>
   </url>
   <url>
-    <loc>https://learn.jpmonteagudo.com/learn/Stat_Rethinking/index.html</loc>
-    <lastmod>2024-10-08T18:39:17.507Z</lastmod>
+    <loc>https://learn.jpmonteagudo.com/learn/epi/index.html</loc>
+    <lastmod>2024-06-03T15:13:28.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/index.html</loc>
+    <lastmod>2024-10-09T16:20:44.865Z</lastmod>
   </url>
   <url>
     <loc>https://learn.jpmonteagudo.com/learn/epi/epi_des/chap1_2/index.html</loc>
@@ -21,15 +25,11 @@
     <lastmod>2024-06-03T12:54:31.896Z</lastmod>
   </url>
   <url>
-    <loc>https://learn.jpmonteagudo.com/learn/advanceR/index.html</loc>
-    <lastmod>2024-10-08T18:35:58.260Z</lastmod>
+    <loc>https://learn.jpmonteagudo.com/learn/art/index.html</loc>
+    <lastmod>2024-06-03T15:15:23.413Z</lastmod>
   </url>
   <url>
-    <loc>https://learn.jpmonteagudo.com/learn/epi/index.html</loc>
-    <lastmod>2024-06-03T15:13:28.669Z</lastmod>
-  </url>
-  <url>
-    <loc>https://learn.jpmonteagudo.com/learn/Stat_Rethinking/ch1_3/index.html</loc>
-    <lastmod>2024-10-09T16:07:53.867Z</lastmod>
+    <loc>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index.html</loc>
+    <lastmod>2024-10-09T16:33:53.893Z</lastmod>
   </url>
 </urlset>

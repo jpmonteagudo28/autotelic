@@ -10,7 +10,7 @@ format:
     code-overflow: wrap
     code-line-numbers: false
 citation: false
-draft: true
+draft: false
 haiku:
   - Thought you were normal
   - but Bayes says you're different;
