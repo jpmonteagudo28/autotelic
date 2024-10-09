@@ -16,7 +16,6 @@ freeze: false
 listing:
   - id: chapters
     contents: 
-      - "/advanceR/**/index.qmd"
       - "/Stat_Rethinking/**/index.qmd"
     feed: true
     sort: false
@@ -31,11 +30,6 @@ listing:
     display: none;
 }
 ```
-
-## Advanced R
-
-::: {#chapters}
-:::
 
 ## Statistical Rethinking
 
