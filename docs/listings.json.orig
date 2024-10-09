@@ -1,0 +1,37 @@
+[
+  {
+<<<<<<< HEAD
+=======
+    "listing": "/learn/epi/index.html",
+    "items": [
+      "/learn/epi/epi_des/chap1_2/index.html"
+    ]
+  },
+  {
+    "listing": "/learn/advanceR/index.html",
+    "items": []
+  },
+  {
+>>>>>>> 609749c05bec804745b20092dcac0e746cf6b266
+    "listing": "/learn/art/index.html",
+    "items": [
+      "/learn/art/taoc/chap1_2/index.html"
+    ]
+  },
+  {
+    "listing": "/learn/Stat_Rethinking/index.html",
+    "items": []
+  },
+  {
+    "listing": "/learn/advanceR/index.html",
+    "items": [
+      "/learn/advanceR/advanceR/chap1_3/index.html"
+    ]
+  },
+  {
+    "listing": "/learn/epi/index.html",
+    "items": [
+      "/learn/epi/epi_des/chap1_2/index.html"
+    ]
+  }
+]
