@@ -1,0 +1,460 @@
+---
+title: "Chapters 1–4"
+date: now
+format:
+  html:
+    css: /learn/style.css
+    code-fold: false
+    code-tools: true
+    code-overflow: wrap
+    code-line-numbers: false
+#doi: 10.59350/wx5k1-ajc38
+citation: false
+draft: true
+haiku:
+  - What's in a name?
+  - That which we call a rose
+  - by any other name would smell as sweet.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,
+                      fig.width = 5.5, fig.height = (5.5 * 0.618),
+                      out.width = "90%", collapse = TRUE, 
+                      cache = TRUE, comment = "#|")
+options(digits = 3, width = 300)
+
+library(lobstr)
+library(bench)
+library(ggplot2)
+library(showtext)
+
+```
+
+## What's in a name?
+
+If you'd like to know your way around the programming environment, you first have to understand how R's OOP works. Binding is one of the most basic functions performed in `R` so let's start there:
+
+```{r}
+x <- (1:6)
+print(x)
+```
+
+R assigns values to a name, and not vice-versa. This code is creating an object, a vector with 6 elements. This object is then bound to the name `x`– which is also a variable. The name acts as a reference to the values 1 through 6. This concept is clearly demonstrated by binding the existing values in x to y. This action doesn't create a copy of `(1:6)`, but binds the same values to a new name `y`. This doesn't mean that you won't see two names in your environment, instead, it shows that `y` is also referencing `(1:6)`.
+
+```{r}
+y <- x
+```
+
+How do we know this? Well, we can access the object's identifier to make sure both `x` and `y` point to the same object `(1:6)`.
+
+```{r obj_identify}
+print(lobstr::obj_addr(x))
+print(lobstr::obj_addr(y))
+
+## Another example of this behavior
+print(lobstr::obj_addr(mean))
+print(lobstr::obj_addr(base::mean))
+print(lobstr::obj_addr(match.fun("mean")))
+```
+
+## Changes to a name
+
+The naming possibilities seem endless, but they're actually limited. Always use syntactic names that consists of letters, digits, `.` and `_`. You can't begin with `_` or a digit, and can't use any **reserved words** like `TRUE`, `FALSE`,`NULL`,`if`, and `function`[^1]. To override these rules, you have to surround the name in back–ticks.
+
+[^1]: Check out the complete list of restricted names in `?Reserved`
+
+```{r caramba}
+`function` <- c(1:3,"ay", "caramba")
+print(`function`)
+
+`if` <- 1e+7
+print(`if`)
+```
+
+What happens when I modify `y`? Do I get a new object or the same object, `"0x1c7fb8fc418"` with new values? A new object is created, but the original object `(1;6)`, did not change[^2]. R simply created a new object with one value changed, and rebound `y` to it.
+
+[^2]: **ALTREP**, or alternative representation, allows R to represent certain vectors in a very compact fashion. Number sequences are one example of this behavior since only the first and last numbers are stored. For this reason every sequence is the same size, 680B.
+
+```{r tracing, eval = FALSE}
+x <- 1:6
+y <- x
+cat(tracemem(y), "\n")
+#> <0000023889E515A0>
+
+# Modified object
+y[[6]] <- 10
+
+#> tracemem[0x0000023889e515a0 -> 0x0000023891546ef8]: 
+#> tracemem[0x0000023891546ef8 -> 0x0000023890d854f8]: 
+
+untracemem(y) # to stop tracing y
+
+# Using a function to test this concept
+f <- function(a){
+  a
+}
+
+cat(tracemem(x), "\n")
+
+z <- f(x)
+# no copy made. Bound z to (1:6)
+
+untracemem(x)
+```
+
+We just performed **copy-on modify**[^3] and, hopefully, realized that R objects are immutable– once created, it will stay unchanged[^4].
+
+[^3]: If an object has a single name bound to it, R will **modify–in–place**–the new value will be appended to the same object.
+
+[^4]: When an object is not longer bound to a name, the garbage collector will delete it to free up memory
+
+### Lists
+
+Lists store elements that point to a specific value, just like variables; however, R uses **shallow** copy–on modify when binding values to a new list. In other words, the list object and its bindings are copied, but not the values to which the elements are pointing.
+
+```{r list_id}
+l1 <- list(c(1:4),"a")
+lobstr::obj_addr(l1)
+
+l2 <- l1
+lobstr::obj_addr(l2)
+
+# Modify l2
+l2[[3]] <- 25
+lobstr::obj_addr(l2)
+
+## Let's look at values shared across lists
+lobstr::ref(l1,l2)
+```
+
+### Data frames
+
+Data frames are lists of vectors so modifying a column– one list– will not affect the binding of the other columns. However, modifying a row forces R to copy every column in the data frame.
+
+```{r df_ref}
+d1 <- data.frame(x = (1:6), y = (7:12))
+lobstr::obj_addr(d1)
+
+d2 <- d1
+lobstr::obj_addr(d2)
+
+# Modify one column
+d2[,2] <- d2[,2] * 3
+ref(d1,d2)
+
+# Modify one row
+d3 <- d1
+d3[1,]<- d3[1,] *3
+ref(d1,d3)
+```
+
+### Character vectors
+
+R uses a global string pool where each element in a character vector is a pointer to a unique string in the pool.
+
+```{r}
+char <- c("a","a","abc","d")
+lobstr::ref(char, character = T)
+```
+
+```{r char_vecID, echo = FALSE, out.width = NULL}
+knitr::include_graphics("../img/character-2.png")
+```
+
+#### A little bit of **fun**ctions
+
+Let's see how R's binding behavior affects performance by using two simple functions and comparing the speed as the number of columns increase.
+
+```{r sum_meanFUN, cache = TRUE}
+# Define function to create random data
+make.rand <- function(nrow,ncol){
+  set.seed(2899)
+  ran.matrix <- matrix(runif(nrow * ncol)
+                       ,nrow = nrow)
+  as.data.frame(ran.matrix)
+}
+
+# Create function to perform simple operation on:
+# Data frames
+sum.df <- function(x,means){
+  means <- vapply(x,mean,numeric(1))
+  for(i in seq_along(means)){
+    x[[i]] <- x[[i]] + means[[i]]
+  }
+  x
+}
+
+# and lists
+sum.list <- function(x,means){
+  x <- as.list(x)
+  x <- sum.df(x,means)
+  list2DF(x) # using list2DF to level performance of both functions
+}
+
+make.rand(2,2) # testing function with 2×2 matrix
+```
+
+::: {.callout-tip appearance="simple"}
+As a rule of thumbs, initialize vectors outside of loops. Move the computation of the `means` vector inside the `for` loop, and you will notice a 17,000% increase in computation time.
+:::
+
+I've created two functions to wrap the mean addition of a data frame and a list of randomly generated data. Next, I'll create a function to evaluate performance of each operation on `dfs` and `lists` and thus the overhead of `for` loops[^5].
+
+[^5]: each iteration of the loop copies the data frame three times. Ideally, this behavior is reduced by using lists
+
+```{r bench.means}
+# Function to create ran. data, calc. mean add., and eval. performance.
+bench.means <- function(ncol){
+  df <- make.rand(nrow = 1e4,ncol = ncol)
+  means <- vapply(df,mean,numeric(1), USE.NAMES = F)
+  
+  bench::mark("data frame" = sum.df(df,means),
+              "list" = sum.list(df,means),
+              time_unit = "ms")
+}
+
+bench.means(1) # testing function w. 1 column
+```
+
+Using `bench::press()` I'll iterate over a vector of columns to evaluate performance speed as `ncol` increases and then visualize the execution time for data frames and lists.
+
+```{r plots, dependson = "bench.means"}
+
+results <- bench::press(
+  ncol = c(1,10,35,75,100,300,500,650,800),
+  bench.means(ncol)
+)
+
+# Customize fonts
+font_add_google("Libre Franklin","libre")
+showtext_auto()
+text <- "libre"
+
+# Custom color palette
+cols <- c("#80ADBF","#7c225c")
+
+# Create custom plot
+ggplot(results,
+       aes(ncol,median,col = attr(expression,"description"))) +
+  geom_point() +
+  geom_smooth(se = FALSE) +
+  labs(x = "Number of columns",
+       y = "Execution Time (ms)",
+       colour = "Data Structure") +
+  scale_color_manual(values = cols) +
+  theme_minimal() +
+  theme(legend.position = "top",
+        legend.title = element_text(family = text, size = 23),
+        legend.text = element_text(family = text, size = 18),
+        plot.background = element_rect(fill = "#dfe8f3",
+                                       color = "NA"),
+        axis.title = element_text(family = text, size = 18,
+                                  hjust = .5),
+        axis.text = element_text(family = text,size = 16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+        )
+```
+
+```{r ex_df, dependson = "sum_meanFUN", eval = FALSE}
+x <- make.rand(nrow = 1e4,ncol = 5)
+means <- vapply(x,mean,numeric(1))
+
+for(i in seq_along(means)){
+  x[[i]] <- x[[i]] + means[[i]]
+}
+
+# How many times is the data frame copied during one iteration?
+cat(tracemem(x), "\n")
+# <0x000001b594610f08>
+
+for(i in 1:2){
+  x[[i]] <- x[[i]] + means[[i]]
+}
+
+# tracemem[0x000001b594610f08 -> 0x000001b597fb9468]
+# tracemem[0x000001b597fb9468 -> 0x000001b597fb93f8]: [[<-.data.frame [[<-
+# tracemem[0x000001b597fb93f8 -> 0x000001b597fb9388]
+# tracemem[0x000001b597fb9388 -> 0x000001b597fb9318]: [[<-.data.frame [[<-
+
+untracemem(x)
+```
+
+The execution time for a data frame is significantly higher after a few hundred columns are added. R's copy-on modify behavior creates three copies of the data frame with each iteration of the `for` loop while a list is only copied once. This behavior is not problematic for a few columns so this approach may not pay off.
+
+## Vectors
+
+Vectors comes in two flavors, atomic^[when the inputs of a vector are atomic, the resulting vector will also be atomic. This is called flattening.] and lists. There are four primary types of atomic vectors: logical, integer, double, and character. We refer to integer and double vectors as numeric. There are also complex and raw vectors to deal with complex numbers and binary data^[Review the documentation for `as.raw()` and `as.complex()`.].
+
+```{mermaid}
+%%| echo: false
+%%| fig-width: 4
+flowchart LR
+  A[Logical] ---> B((Atomic))
+  B --> C{Vector}
+  E(Numeric) --> B
+  D[Character] ---> B
+  F[Double] --> E
+  G[Integer] --> E
+```
+
+
+To create scalars^[a special syntax to create an individual value] of each type of atomic vectors we use `TRUE` or `FALSE`^[also abbreviated as `T` and `F`] for logicals. Doubles are specified in decimal, scientific or hexadecimal form and can take three special forms, `Inf`, `-Inf`, and `NaN`. Integers are written like doubles but must be followed by L, while strings are surrounded by `"` or `'`. 
+
+```{r v_type}
+dbl <- c(1.2,2.45,3.0)
+int <- c(1,6,10,4)
+log <- c(TRUE,FALSE,TRUE,FALSE)
+char <- c("TRUE","FALSE","TRUE","FALSE")
+
+typeof(dbl); length(dbl)
+typeof(int); length(int)
+typeof(log); length(log)
+typeof(char); length(char)
+
+# NA values
+# Most computations involving a missing value will return a missing value
+NA * 5
+NA > 10
+!NA
+NA^0
+NA | TRUE # TRUE has a value of 1
+NA & FALSE # FALSE has a value of 0
+
+# Missing values propagate
+x <- c(NA,5,10,13,NA)
+x == NA
+#Use is.na() instead
+is.na(x)
+```
+
+Instead of testing whether you're working with a vector using `is.vector()` or `is.atomic`, or `is.numeric()`^[These commands don't test if you have a vector. Review the documentation to figure out what they do.]; use more specific commands like `is.logical()`, `is.double()`, `is.integer()`,`is.character()`. For atomic vectors, type is a property of the entire vector– all elements must be of the same type. This will be forcibly achieved by automatic **coercion** in a pre-determined order:
+
+```{mermaid}
+%%| echo: false
+%%|fig-width: 4
+flowchart LR
+A(character) --> B(double) 
+B --> C(integer) 
+C --> D(logical)
+```
+
+However, you can deliberately coerce an object by using `as.*()`; however, you run the risk of producing NA if the object cannot be coerced, i.e, coercing character strings to numeric objects. 
+
+### Attributes
+
+Vectors do not include matrices, arrays,factors, or date–time objects. These types are built as attributes of a vector. These attributes are name–value pairs that attach metadata to an object. You can set attributes with `structure()`, and retrieved with `attr()` and `attributes()`, individually or collectively. However, most attributes, except `names` and `dim`, are lost by most operations, unless you create an S3 class for them. 
+
+```{r str_attrib}
+a <- 1:3
+a <- structure(1:3,
+  x = "ay",
+  y = "caramba"
+)
+
+str(attributes(a))
+
+#Don't use attr(a,"names") to assign names to elements in an object.
+# Instead use one of these three options:
+b <- c(d = c("1,2,3"),e = "ay", f = "caramba") 
+
+# or use names()#
+b <- c("1,2,3","ay","caramba")
+names(b) <- c("d","e","f")
+
+# or Inline, with setNames #
+b <- setNames(c("1,2,3","ay","caramba"), c("d","e","f"))
+```
+
+The `dim` attribute allows a vector to behave like a two–dimensional matrix or a multi–dimensional array. Matrices and arrays can therefore be created in place by using the `dim()` command or `matrix()` and `array()`
+
+```{r name_tab, echo = FALSE}
+
+df <- data.frame(Vector = c("names()", "length()","c()","—","is.null(dim(x))"),
+Matrix = c("rownames(), colnames()","nrow(), ncol()","rbind(),cbind()","t()","is.matrix()"),
+Array = c("dimnames()","dim()","abind::abind()","aperm()","is.array()"))
+
+knitr::kable(df, "simple", align = "ccc", caption = "Command Generalizations")
+```
+
+### S3 Vectors
+
+The `class` attribute turns vectors into S3 objects. S3 objects are built on top of a base type, and store additional information in other attributes. Four important S3 vectors used in R are **factors**, categorical data with values represening a fixed set of levels;**date** vectors, **date—times** stored in **POSIXct**, and **difftime** to represent durations. 
+
+```{mermaid}
+%%| echo: false
+%%| fig-width: 4
+flowchart LR
+  A[Logical] ---> B((Atomic))
+  B --> C{Vector}
+  E(Numeric) --> B
+  D[Character] ---> B
+  F[Double] --> E
+  G[Integer] --> E
+  H[/factor/] -->G
+  I[/POSIXct/] -->F
+  J[/Date/] --> F
+```
+#### Factors
+
+Factors are built on top of an integer vector with two attributes: a `class` “factor” and `levels`to define the set of allowed values. Tabulating factor vectors will get you a count of all categories, observed and unobserved, which is not the case with character vectors. **Ordered** factors are a variation of factors where the order of levels is meaningful(poor, good, best).
+
+```{r factors}
+f <- factor(c("ay", "ay","caramba","caramba","123"))
+print(f)
+
+typeof(f)
+
+# Factor levels count
+gender <- c("m","m","m")
+gender_factor <- factor(gender, levels = c("m","f"))
+
+# Tabulate
+table(gender)
+table(gender_factor)
+
+# Ordered Factors
+health <- ordered(c("poor","good","poor","best","good"), 
+                  levels = c("poor","good","best"))
+print(health)
+```
+
+#### Dates & Date—times
+
+Date vectors are built on top of double vectors and only have one attribute, `class`. The value of the double vector, after stripping the class, represents the number of days since the Unix epoch(1970-01-01).
+
+Date—times vector come in two formats, POSIXct and POSIXlt, built on top of double vectors, where the values of POSIXct, calendar time, represents the number of seconds since the Unix epoch.
+
+```{r date_time}
+today <- Sys.Date()
+
+typeof(today)
+attributes(today)
+
+date <- as.Date("1970-02-02")
+unclass(date)
+
+# Date-times
+point_ct <- as.POSIXct("2020-02-02", tz = "UTC") # tz is timezone
+print(point_ct)
+typeof(point_ct)
+attributes(point_ct)
+```
+
+#### Durations
+
+Durations represent the amount of time between pairs of dates or date—times stored as “difftimes”. Difftimes are also built on top of doubles and have a `units` attribute that determines how the integer is interpreted.
+```{r difftimes}
+week <- as.difftime(1,units = "weeks")
+print(week)
+typeof(week)
+attributes(week)
+
+week_days <- as.difftime(7,units = "days")
+print(week_days)
+typeof(week_days)
+attributes(week_days)
+```
+
+### Lists

@@ -9,8 +9,13 @@
 <link>https://learn.jpmonteagudo.com/learn/epi/</link>
 <atom:link href="https://learn.jpmonteagudo.com/learn/epi/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
+<<<<<<< HEAD
 <generator>quarto-1.5.41</generator>
 <lastBuildDate>Tue, 08 Oct 2024 18:40:06 GMT</lastBuildDate>
+=======
+<generator>quarto-1.4.550</generator>
+<lastBuildDate>Wed, 05 Jun 2024 10:02:53 GMT</lastBuildDate>
+>>>>>>> 609749c05bec804745b20092dcac0e746cf6b266
 <item>
   <title>Deault Title Here</title>
   <link>https://learn.jpmonteagudo.com/learn/epi/epi_des/chap1_2/</link>
