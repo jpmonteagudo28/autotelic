@@ -413,7 +413,7 @@ create_posterior_plot(7,5,20,
 #| code-fold: true
 
 # Setting global parameter for base plots
-par(bg = "#Fffff2")
+par(mfrow = c(1,3), bg = "#Fffff2")
 
 # 2M2 - assume a prior equal to zero when p < 0.5 
 # and a positive constant when p >= 0.5
@@ -426,4 +426,71 @@ create_posterior_plot(3,3,
                       xlab = "probability water",
                       ylab = "posterior probability")
 
+create_posterior_plot(4,3,
+                      grid_points = 20,
+                      prior = ifelse(p_grid < 0.5,0,1),
+                      mtext_label = "75% success",
+                      xlab = "probability water",
+                      ylab = "posterior probability")
+
+create_posterior_plot(7,5,
+                      grid_points = 20,
+                      prior = ifelse(p_grid < 0.5,0,1),
+                      mtext_label = "71% success",
+                      xlab = "probability water",
+                      ylab = "posterior probability")
+
 ```
+
+#### 2M3
+
+Show that the posterior probability of tossing the Earth given a land observation is $P(E|L) = .23$ if the probability of observing water on the Earth is $P(W|E) = .7$ and on Mars $P(W|M) = 0$. Assume $P(E)  =.5$
+
+$$
+\begin{split}
+L = Land, W = Water, E = Earth, M = Mars \\
+\\
+P(L|E) = 0.3 \\
+P(E) = 0.5 \\
+P(M) = 0.5 \\
+P(L|M) = 1 \\ \\
+P(E|L) = \frac{P(L|E)P(E)}{P(L)}\\ \\
+P(E|L) = \frac{.3\times .5}{(0.3 \times .5 + 1\times .5)}\\ \\
+P(E|L) = .231
+\end{split}
+$$
+
+#### 2M4
+
+One deck of cards with three cards. One card has two black sides, another has one black and one white side. The third one has two white sides. Show that $P(B2|B1) = \frac{2}{3}$ using the counting method. 
+
+$$
+\begin{split}
+P(B^2) = P(B_{w}) = P(W^2) = 1/3 \\ \\
+P(B) = P(W) = 1/2 \\ \\
+P(B_{2}|P_{1}) = \frac{P(B^2 \cap B_{1})}{P(B_{t})} \\ \\
+P(B_{2}|P_{1}) = \frac{.3333}{(.333 \times .5 + .333 \times 1 + .333 \times 0)} \\ \\
+P(B_{2}|P_{1}) = .667 = \frac{2}{3}
+\end{split}
+$$
+
+#### 2M5
+
+Similar scenario but 4 cards and $P(B^2) = 1/2$. What's the probability of getting a second black card after getting one black side. 
+
+$$
+\begin{split}
+P(B^2) = 1/2 \\ \\
+P(B_{w}) = P(W^2) = 1/4 \\ \\
+P(B) = 5/8 \\ \\
+P(W) = 3/8 \\ \\
+P(B_{2}|P_{1}) = \frac{P(B^2 \cap B_{1})}{P(B_{t})} \\ \\
+P(B_{2}|P_{1}) = \frac{.50}{.625} \\ \\
+P(B_{2}|P_{1}) = .80 = \frac{4}{5}
+\end{split}
+$$
+
+#### 2H1
+
+
+
