@@ -12,9 +12,9 @@ format:
 citation: false
 draft: true
 haiku:
-  - Thought you were normal
-  - but Bayes says you're different;
-  - heart's torn, you or him.
+  - In misted forest,
+  - truth unfolds, soft and unseen;
+  - posterior calm.
 lightbox: true
 editor: 
   markdown: 
@@ -50,3 +50,25 @@ options(
   rlang_trace_top_env = rlang::current_env(),
   rlang__backtrace_on_error = "none")
 ```
+
+### Sampling the imaginary
+
+* Example using vampirism test:
+  - $P(+|V) = 0.95$, positive test in vampires
+  - $P(+|M) = 0.01$, false positive in mortals
+  - $P(V) 0.001$ probability of someone being a vampire
+  - $P(V|+) = \frac{P(+|V)P(V)}{P(+)}$, probability of vampirism given a positive test
+  - $P(+) = P(+|V)P(V) + P(+|M)(1 - P(V))$, total probability of positive test
+  - $P(V|+) = 0.087$
+  - Most positive tests are false positives, even when true positives are detected correctly in case of rare conditions.
+  
+* Posterior distributions are probability distributions. 
+  - The posterior defines the expected frequency that different parameters will appear, once we start resampling.
+  - An integral is just the total probability in some interval, in the Bayesian context. 
+  
+* Statistics can't save bad science
+  - A hypothesis is either true or false
+  - Use a statistical procedure to get imperfect cue of hypothesis falsity
+  - Use Bayes to logically deduce impact of cue on status of hypothesis. 
+      - Base rate at which hypotheses are true is small
+  - Improving science requires better thinking, **not better testing**

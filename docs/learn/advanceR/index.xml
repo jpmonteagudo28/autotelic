@@ -10,7 +10,7 @@
 <atom:link href="https://learn.jpmonteagudo.com/learn/advanceR/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.41</generator>
-<lastBuildDate>Thu, 10 Oct 2024 16:26:59 GMT</lastBuildDate>
+<lastBuildDate>Thu, 10 Oct 2024 20:48:10 GMT</lastBuildDate>
 <item>
   <title>Chapters 1–2</title>
   <link>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/</link>
@@ -1375,9 +1375,12 @@ font-style: inherit;">)</span></span></code></pre></div>
 </section><section id="m5" class="level4"><h4 class="anchored" data-anchor-id="m5">2M5</h4>
 <p>Similar scenario but 4 cards and <img src="https://latex.codecogs.com/png.latex?P(B%5E2)%20=%201/2">. What’s the probability of getting a second black card after getting one black side.</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0AP(B%5E2)%20=%201/2%20%5C%5C%20%5C%5C%0AP(B_%7Bw%7D)%20=%20P(W%5E2)%20=%201/4%20%5C%5C%20%5C%5C%0AP(B)%20=%205/8%20%5C%5C%20%5C%5C%0AP(W)%20=%203/8%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%20%5Cfrac%7BP(B%5E2%20%5Ccap%20B_%7B1%7D)%7D%7BP(B_%7Bt%7D)%7D%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%20%5Cfrac%7B0.50%7D%7B0.625%7D%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%200.80%20=%20%5Cfrac%7B4%7D%7B5%7D%0A%5Cend%7Bsplit%7D%0A"></p>
-</section><section id="h1" class="level4"><h4 class="anchored" data-anchor-id="h1">2H1</h4>
-<p>Initially, had trouble seeing that I only had to use the law of total probability to get the total, unconditioned probability of twins <img src="https://latex.codecogs.com/png.latex?P(T)">. Once I figured that out, finding the probability of a second twin birth <img src="https://latex.codecogs.com/png.latex?P(T_%7B2%7D%7CT_%7B1%7D)"> was easy to find.</p>
-<img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bsplit%7D%0AP(T%7CT)%20=%20x%20%5C%5C%20%5C%5C%0AP(B_%7B1%7D)%20=%20P(B_%7B2%7D)%20=%200.5%20%5C%5C%20%5C%5C%0AP(T%7CB_%7B1%7D)%20=%200.10%20%5C%5C%20%5C%5C%0AP(T%7CB_%7B2%7D)%20=%200.20%20%5C%5C%20%5C%5C%0A%5Ctext%7BTotal%20probability%20of%20twins%7D%20%5C%5C%0AP(T)%20=%20P(T%7CB_%7B1%7D)P(B_%7B1%7D)%20+%20P(T%7CB_%7B2%7D)P(B_%7B2%7D)%20%5C%5C%20%5C%5C%0AP(T)%20=%200.10%20%5Ctimes%200.50%20+%200.20%20%5Ctimes%200.50%20=%200.15%20%5C%5C%20%5C%5C%0A%0A%5Ctext%7BProbability%20of%20observing%20first%20species%20given%20a%20twin%20birth%7D%20%5C%5C%0AP(B_%7B1%7D%7CT)%20=%20%5Cfrac%7BP(T%7CB_%7B1%7D)P(B)%7D%7BP(T)%7D%20=%200.333%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CT)%20=%201%20-%20P(%5Cbar%7BB_%7B2%7D%7D)%20=%200.667%20%5C%5C%20%5C%5C%0A%5Ctext%7BProbability%20of%20a%20second%20twin%20birth%20regardless%20of%20species%7D%20%5C%5C%0AP(T_%7B2%7D%7CT_%7B1%7D)%20=%20P(T%7CB_%7B1%7D)P(B_%7B1%7D%7CT)%20+%20P(T%7CB_%7B2%7D)P(B_%7B2%7D%7CT)%20%5C%5C%20%5C%5C%0AP(T_%7B2%7D%7CT_%7B1%7D)%20=%200.10%20%5Ctimes%200.333%20+%200.20%20%5Ctimes%200.667%20=%200.167%0A%5Cend%7Bsplit%7D">
+</section><section id="h1-2h2" class="level4"><h4 class="anchored" data-anchor-id="h1-2h2">2H1 &amp; 2H2</h4>
+<p>Initially, I had trouble seeing that I needed to use the law of total probability to get the total, unconditioned probability of twins <img src="https://latex.codecogs.com/png.latex?P(T)">. Once I figured that out, finding the probability of a second twin birth <img src="https://latex.codecogs.com/png.latex?P(T_%7B2%7D%7CT_%7B1%7D)"> was easy.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0AP(T_%7B2%7CT_%7B1%7D%7D)%20&amp;=%20x%20%5C%5C%20%5C%5C%0AP(B_%7B1%7D)%20&amp;=%20P(B_%7B2%7D)%20=%200.5%20%5C%5C%20%5C%5C%0AP(T%7CB_%7B1%7D)%20&amp;=%200.10%20%5C%5C%20%5C%5C%0AP(T%7CB_%7B2%7D)%20&amp;=%200.20%20%5C%5C%20%5C%5C%0A%5Ctext%7BTotal%20probability%20of%20twins%7D%20%5C%5C%0AP(T)%20&amp;=%20P(T%7CB_%7B1%7D)P(B_%7B1%7D)%20+%20P(T%7CB_%7B2%7D)P(B_%7B2%7D)%20%5C%5C%20%5C%5C%0AP(T)%20&amp;=%200.10%20%5Ctimes%200.50%20+%200.20%20%5Ctimes%200.50%20=%200.15%20%5C%5C%20%5C%5C%0A%5Ctext%7BProbability%20of%20observing%20first%20species%20given%20a%20twin%20birth%7D%20%5C%5C%0AP(B_%7B1%7D%7CT)%20&amp;=%20%5Cfrac%7BP(T%7CB_%7B1%7D)P(B_%7B1%7D)%7D%7BP(T)%7D%20=%200.333%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CT)%20&amp;=%201%20-%20P(%5Cbar%7BB_%7B2%7D%7D)%20=%200.667%20%5C%5C%20%5C%5C%0A%5Ctext%7BProbability%20of%20a%20second%20twin%20birth%20regardless%20of%20species%7D%20%5C%5C%0AP(T_%7B2%7D%7CT_%7B1%7D)%20&amp;=%20P(T%7CB_%7B1%7D)P(B_%7B1%7D%7CT)%20+%20P(T%7CB_%7B2%7D)P(B_%7B2%7D%7CT)%20%5C%5C%20%5C%5C%0AP(T_%7B2%7D%7CT_%7B1%7D)%20&amp;=%200.10%20%5Ctimes%200.333%20+%200.20%20%5Ctimes%200.667%20=%200.167%0A%5Cend%7Bsplit%7D%0A"></p>
+</section><section id="h3" class="level4"><h4 class="anchored" data-anchor-id="h3">2H3</h4>
+<p>We know that the probability of observing species A after the birth of twins is <img src="https://latex.codecogs.com/png.latex?P(B_%7B1%7D)%20=%200.33"> and the probability that species A produces a singleton infant is <img src="https://latex.codecogs.com/png.latex?1%20-%20P(T%7CB_%7B1%7D)%20=%200.90">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%5Ctext%7BTotal%20probability%20of%20singleton%20infant%7D%20%5C%5C%0AP(S)%20&amp;=%20P(S%7CB_%7B1%7D)P(B_%7B1%7D)%20+%20P(S%7CB_%7B2%7D)P(B_%7B2%7D)%20%5C%5C%20%5C%5C%0AP(S)%20&amp;=%200.90%20%5Ctimes%200.33%20+%200.80%20%5Ctimes%200.67%20=%200.83%20%5C%5C%20%5C%5C%0A%5Ctext%7BWe%20can%20ignore%20the%20first%20birth%20and%20focus%20on%20the%20species%7D%20%5C%5C%0AP(B_%7B1%7D%7CS)%20&amp;=%20%5Cfrac%7BP(S%7CB_%7B1%7D)P(B_%7B1%7D)%7D%7BP(S)%7D%20%5C%5C%20%5C%5C%0AP(B_%7B1%7D%7CS)%20%20&amp;=%20%5Cfrac%7B0.90%20%5Ctimes%200.33%7D%7B0.83%7D%20=%200.357%0A%5Cend%7Bsplit%7D%0A"></p>
 
 
 <!-- -->
@@ -1387,7 +1390,7 @@ font-style: inherit;">)</span></span></code></pre></div>
 <li id="fn1"><p><img src="https://latex.codecogs.com/png.latex?P(w)%20=%20E(P(w%7Cp))%20=%20%5Cint%20P(w%7Cp)P(p)%5Cpartial%20p">↩︎</p></li>
 </ol></section></div> ]]></description>
   <guid>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/</guid>
-  <pubDate>Thu, 10 Oct 2024 16:26:59 GMT</pubDate>
+  <pubDate>Thu, 10 Oct 2024 20:48:10 GMT</pubDate>
 </item>
 <item>
   <title>Chapters 1–3</title>

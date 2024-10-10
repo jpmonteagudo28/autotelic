@@ -648,24 +648,37 @@ P(B_{2}|P_{1}) = \frac{0.50}{0.625} \\ \\
 P(B_{2}|P_{1}) = 0.80 = \frac{4}{5}
 \end{split}
 \]</span></p>
-</section><section id="h1" class="level4"><h4 class="anchored" data-anchor-id="h1">2H1</h4>
-<p>Initially, had trouble seeing that I only had to use the law of total probability to get the total, unconditioned probability of twins <span class="math inline">\(P(T)\)</span>. Once I figured that out, finding the probability of a second twin birth <span class="math inline">\(P(T_{2}|T_{1})\)</span> was easy to find.</p>
-<span class="math display">\[\begin{split}
-P(T|T) = x \\ \\
-P(B_{1}) = P(B_{2}) = 0.5 \\ \\
-P(T|B_{1}) = 0.10 \\ \\
-P(T|B_{2}) = 0.20 \\ \\
+</section><section id="h1-2h2" class="level4"><h4 class="anchored" data-anchor-id="h1-2h2">2H1 &amp; 2H2</h4>
+<p>Initially, I had trouble seeing that I needed to use the law of total probability to get the total, unconditioned probability of twins <span class="math inline">\(P(T)\)</span>. Once I figured that out, finding the probability of a second twin birth <span class="math inline">\(P(T_{2}|T_{1})\)</span> was easy.</p>
+<p><span class="math display">\[
+\begin{split}
+P(T_{2|T_{1}}) &amp;= x \\ \\
+P(B_{1}) &amp;= P(B_{2}) = 0.5 \\ \\
+P(T|B_{1}) &amp;= 0.10 \\ \\
+P(T|B_{2}) &amp;= 0.20 \\ \\
 \text{Total probability of twins} \\
-P(T) = P(T|B_{1})P(B_{1}) + P(T|B_{2})P(B_{2}) \\ \\
-P(T) = 0.10 \times 0.50 + 0.20 \times 0.50 = 0.15 \\ \\
-
+P(T) &amp;= P(T|B_{1})P(B_{1}) + P(T|B_{2})P(B_{2}) \\ \\
+P(T) &amp;= 0.10 \times 0.50 + 0.20 \times 0.50 = 0.15 \\ \\
 \text{Probability of observing first species given a twin birth} \\
-P(B_{1}|T) = \frac{P(T|B_{1})P(B)}{P(T)} = 0.333\\ \\
-P(B_{2}|T) = 1 - P(\bar{B_{2}}) = 0.667 \\ \\
+P(B_{1}|T) &amp;= \frac{P(T|B_{1})P(B_{1})}{P(T)} = 0.333 \\ \\
+P(B_{2}|T) &amp;= 1 - P(\bar{B_{2}}) = 0.667 \\ \\
 \text{Probability of a second twin birth regardless of species} \\
-P(T_{2}|T_{1}) = P(T|B_{1})P(B_{1}|T) + P(T|B_{2})P(B_{2}|T) \\ \\
-P(T_{2}|T_{1}) = 0.10 \times 0.333 + 0.20 \times 0.667 = 0.167
-\end{split}\]</span>
+P(T_{2}|T_{1}) &amp;= P(T|B_{1})P(B_{1}|T) + P(T|B_{2})P(B_{2}|T) \\ \\
+P(T_{2}|T_{1}) &amp;= 0.10 \times 0.333 + 0.20 \times 0.667 = 0.167
+\end{split}
+\]</span></p>
+</section><section id="h3" class="level4"><h4 class="anchored" data-anchor-id="h3">2H3</h4>
+<p>We know that the probability of observing species A after the birth of twins is <span class="math inline">\(P(B_{1}) = 0.33\)</span> and the probability that species A produces a singleton infant is <span class="math inline">\(1 - P(T|B_{1}) = 0.90\)</span>.</p>
+<p><span class="math display">\[
+\begin{split}
+\text{Total probability of singleton infant} \\
+P(S) &amp;= P(S|B_{1})P(B_{1}) + P(S|B_{2})P(B_{2}) \\ \\
+P(S) &amp;= 0.90 \times 0.33 + 0.80 \times 0.67 = 0.83 \\ \\
+\text{We can ignore the first birth and focus on the species} \\
+P(B_{1}|S) &amp;= \frac{P(S|B_{1})P(B_{1})}{P(S)} \\ \\
+P(B_{1}|S)  &amp;= \frac{0.90 \times 0.33}{0.83} = 0.357
+\end{split}
+\]</span></p>
 
 
 <!-- -->
@@ -1636,33 +1649,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-490"><a href="#cb7-490" aria-hidden="true" tabindex="-1"></a>\end{split}</span>
 <span id="cb7-491"><a href="#cb7-491" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb7-492"><a href="#cb7-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-493"><a href="#cb7-493" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2H1</span></span>
+<span id="cb7-493"><a href="#cb7-493" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2H1 &amp; 2H2</span></span>
 <span id="cb7-494"><a href="#cb7-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-495"><a href="#cb7-495" aria-hidden="true" tabindex="-1"></a>Initially, had trouble seeing that I needed to use the law of total probability to get the total, unconditioned probability of twins $P(T)$. Once I figured that out, finding the probability of a second twin birth $P(T_{2}|T_{1})$ was easy.</span>
+<span id="cb7-495"><a href="#cb7-495" aria-hidden="true" tabindex="-1"></a>Initially, I had trouble seeing that I needed to use the law of total probability to get the total, unconditioned probability of twins $P(T)$. Once I figured that out, finding the probability of a second twin birth $P(T_{2}|T_{1})$ was easy.</span>
 <span id="cb7-496"><a href="#cb7-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-497"><a href="#cb7-497" aria-hidden="true" tabindex="-1"></a>\begin{split}</span>
-<span id="cb7-498"><a href="#cb7-498" aria-hidden="true" tabindex="-1"></a>P(T_{2|T_{1}) = x <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-499"><a href="#cb7-499" aria-hidden="true" tabindex="-1"></a>P(B_{1}) = P(B_{2}) = 0.5 <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-500"><a href="#cb7-500" aria-hidden="true" tabindex="-1"></a>P(T|B_{1}) = 0.10 <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-501"><a href="#cb7-501" aria-hidden="true" tabindex="-1"></a>P(T|B_{2}) = 0.20 <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-502"><a href="#cb7-502" aria-hidden="true" tabindex="-1"></a>\text{Total probability of twins} <span class="sc">\\</span></span>
-<span id="cb7-503"><a href="#cb7-503" aria-hidden="true" tabindex="-1"></a>P(T) = P(T|B_{1})P(B_{1}) + P(T|B_{2})P(B_{2}) <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-504"><a href="#cb7-504" aria-hidden="true" tabindex="-1"></a>P(T) = 0.10 \times 0.50 + 0.20 \times 0.50 = 0.15 <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-505"><a href="#cb7-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-497"><a href="#cb7-497" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-498"><a href="#cb7-498" aria-hidden="true" tabindex="-1"></a>\begin{split}</span>
+<span id="cb7-499"><a href="#cb7-499" aria-hidden="true" tabindex="-1"></a>P(T_{2|T_{1}}) &amp;= x <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-500"><a href="#cb7-500" aria-hidden="true" tabindex="-1"></a>P(B_{1}) &amp;= P(B_{2}) = 0.5 <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-501"><a href="#cb7-501" aria-hidden="true" tabindex="-1"></a>P(T|B_{1}) &amp;= 0.10 <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-502"><a href="#cb7-502" aria-hidden="true" tabindex="-1"></a>P(T|B_{2}) &amp;= 0.20 <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-503"><a href="#cb7-503" aria-hidden="true" tabindex="-1"></a>\text{Total probability of twins} <span class="sc">\\</span></span>
+<span id="cb7-504"><a href="#cb7-504" aria-hidden="true" tabindex="-1"></a>P(T) &amp;= P(T|B_{1})P(B_{1}) + P(T|B_{2})P(B_{2}) <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-505"><a href="#cb7-505" aria-hidden="true" tabindex="-1"></a>P(T) &amp;= 0.10 \times 0.50 + 0.20 \times 0.50 = 0.15 <span class="sc">\\</span> <span class="sc">\\</span></span>
 <span id="cb7-506"><a href="#cb7-506" aria-hidden="true" tabindex="-1"></a>\text{Probability of observing first species given a twin birth} <span class="sc">\\</span></span>
-<span id="cb7-507"><a href="#cb7-507" aria-hidden="true" tabindex="-1"></a>P(B_{1}|T) = \frac{P(T|B_{1})P(B)}{P(T)} = 0.333<span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-508"><a href="#cb7-508" aria-hidden="true" tabindex="-1"></a>P(B_{2}|T) = 1 - P(\bar{B_{2}}) = 0.667 <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-507"><a href="#cb7-507" aria-hidden="true" tabindex="-1"></a>P(B_{1}|T) &amp;= \frac{P(T|B_{1})P(B_{1})}{P(T)} = 0.333 <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-508"><a href="#cb7-508" aria-hidden="true" tabindex="-1"></a>P(B_{2}|T) &amp;= 1 - P(\bar{B_{2}}) = 0.667 <span class="sc">\\</span> <span class="sc">\\</span></span>
 <span id="cb7-509"><a href="#cb7-509" aria-hidden="true" tabindex="-1"></a>\text{Probability of a second twin birth regardless of species} <span class="sc">\\</span></span>
-<span id="cb7-510"><a href="#cb7-510" aria-hidden="true" tabindex="-1"></a>P(T_{2}|T_{1}) = P(T|B_{1})P(B_{1}|T) + P(T|B_{2})P(B_{2}|T) <span class="sc">\\</span> <span class="sc">\\</span></span>
-<span id="cb7-511"><a href="#cb7-511" aria-hidden="true" tabindex="-1"></a>P(T_{2}|T_{1}) = 0.10 \times 0.333 + 0.20 \times 0.667 = 0.167</span>
+<span id="cb7-510"><a href="#cb7-510" aria-hidden="true" tabindex="-1"></a>P(T_{2}|T_{1}) &amp;= P(T|B_{1})P(B_{1}|T) + P(T|B_{2})P(B_{2}|T) <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-511"><a href="#cb7-511" aria-hidden="true" tabindex="-1"></a>P(T_{2}|T_{1}) &amp;= 0.10 \times 0.333 + 0.20 \times 0.667 = 0.167</span>
 <span id="cb7-512"><a href="#cb7-512" aria-hidden="true" tabindex="-1"></a>\end{split}</span>
-<span id="cb7-513"><a href="#cb7-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-513"><a href="#cb7-513" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb7-514"><a href="#cb7-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-515"><a href="#cb7-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-516"><a href="#cb7-516" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb7-515"><a href="#cb7-515" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2H3</span></span>
+<span id="cb7-516"><a href="#cb7-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-517"><a href="#cb7-517" aria-hidden="true" tabindex="-1"></a>We know that the probability of observing species A after the birth of twins is $P(B_{1}) = 0.33$ and the probability that species A produces a singleton infant is $1 - P(T|B_{1}) = 0.90$.</span>
+<span id="cb7-518"><a href="#cb7-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-519"><a href="#cb7-519" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-520"><a href="#cb7-520" aria-hidden="true" tabindex="-1"></a>\begin{split}</span>
+<span id="cb7-521"><a href="#cb7-521" aria-hidden="true" tabindex="-1"></a>\text{Total probability of singleton infant} <span class="sc">\\</span></span>
+<span id="cb7-522"><a href="#cb7-522" aria-hidden="true" tabindex="-1"></a>P(S) &amp;= P(S|B_{1})P(B_{1}) + P(S|B_{2})P(B_{2}) <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-523"><a href="#cb7-523" aria-hidden="true" tabindex="-1"></a>P(S) &amp;= 0.90 \times 0.33 + 0.80 \times 0.67 = 0.83 <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-524"><a href="#cb7-524" aria-hidden="true" tabindex="-1"></a>\text{We can ignore the first birth and focus on the species} <span class="sc">\\</span> </span>
+<span id="cb7-525"><a href="#cb7-525" aria-hidden="true" tabindex="-1"></a>P(B_{1}|S) &amp;= \frac{P(S|B_{1})P(B_{1})}{P(S)} <span class="sc">\\</span> <span class="sc">\\</span></span>
+<span id="cb7-526"><a href="#cb7-526" aria-hidden="true" tabindex="-1"></a>P(B_{1}|S)  &amp;= \frac{0.90 \times 0.33}{0.83} = 0.357</span>
+<span id="cb7-527"><a href="#cb7-527" aria-hidden="true" tabindex="-1"></a>\end{split}</span>
+<span id="cb7-528"><a href="#cb7-528" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-529"><a href="#cb7-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-530"><a href="#cb7-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-531"><a href="#cb7-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-532"><a href="#cb7-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-533"><a href="#cb7-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-534"><a href="#cb7-534" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

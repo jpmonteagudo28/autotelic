@@ -1,8 +1,8 @@
 {
-  "hash": "73f7a4c243f1522488efbb555567fb55",
+  "hash": "599e98bc224ecd1227b76ebcc2d8eb3d",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Chapters 3 - 4\"\ndate: now\nformat:\n  html:\n    css: /learn/style.css\n    code-fold: false\n    code-link: true\n    code-tools: true\n    code-overflow: wrap\n    code-line-numbers: false\ncitation: false\ndraft: true\nhaiku:\n  - Thought you were normal\n  - but Bayes says you're different;\n  - heart's torn, you or him.\nlightbox: true\neditor: \n  markdown: \n    wrap: 72\n---\n\n",
+    "markdown": "---\ntitle: \"Chapters 3 - 4\"\ndate: now\nformat:\n  html:\n    css: /learn/style.css\n    code-fold: false\n    code-link: true\n    code-tools: true\n    code-overflow: wrap\n    code-line-numbers: false\ncitation: false\ndraft: true\nhaiku:\n  - In misted forest,\n  - truth unfolds, soft and unseen;\n  - posterior calm.\nlightbox: true\neditor: \n  markdown: \n    wrap: 72\n---\n\n\n\n\n\n### Sampling the imaginary\n\n* Example using vampirism test:\n  - $P(+|V) = 0.95$, positive test in vampires\n  - $P(+|M) = 0.01$, false positive in mortals\n  - $P(V) 0.001$ probability of someone being a vampire\n  - $P(V|+) = \\frac{P(+|V)P(V)}{P(+)}$, probability of vampirism given a positive test\n  - $P(+) = P(+|V)P(V) + P(+|M)(1 - P(V))$, total probability of positive test\n  - $P(V|+) = 0.087$\n  - Most positive tests are false positives, even when true positives are detected correctly in case of rare conditions.\n  \n* Posterior distributions are probability distributions. \n  - The posterior defines the expected frequency that different parameters will appear, once we start resampling.\n  - An integral is just the total probability in some interval, in the Bayesian context. ",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
