@@ -1,5 +1,5 @@
 ---
-title: "Epi & Stats"
+title: "Epi & Bio"
 # date: "may, 2024"
 # date-format: "MMM, YY"
 format:
@@ -12,7 +12,7 @@ citation: false
 code-tools: false
 comments: false
 engine: knitr
-freeze: false
+freeze: auto
 listing:
   - id: chapters
     contents: "epi_des/**/index.qmd"

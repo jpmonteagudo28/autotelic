@@ -1,0 +1,15 @@
+{
+  "hash": "7485944e7afb7fad482ab8d2fe6ad4aa",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Epi & Bio\"\n# date: \"may, 2024\"\n# date-format: \"MMM, YY\"\nformat:\n  html:\n    css: /learn/style.css\n    grid:\n      body-width: 800px\n      sidebar-width: 250px\ncitation: false\ncode-tools: false\ncomments: false\nengine: knitr\nfreeze: auto\nlisting:\n  - id: chapters\n    contents: \"epi_des/**/index.qmd\"\n    feed: true\n    sort: false\n    template: ../../html/learn/listing.ejs\n    categories: false\n    max-items: 5\n    page-size: 5\n---\n\n::: {.cell}\n<style type=\"text/css\">\n#title-block-header .description {\n    display: none;\n}\n</style>\n:::\n\n\n\n\n\n## Epi by Design\n\n::: {#chapters}\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

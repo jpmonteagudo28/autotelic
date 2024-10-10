@@ -66,20 +66,20 @@ ul.task-list li input[type="checkbox"] {
 }</script><script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-chapters .list');
+    const listingTargetEl = window.document.querySelector('#listing-advanceR_chapters .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-project','listing-execute','listing-website','listing-format','listing-language','listing-date-format','listing-title-block-banner','listing-toc','listing-citation','listing-appendix-cite-as','listing-appendix-style','listing-freeze','listing-include-back-link','listing-title','listing-date','listing-draft','listing-haiku','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-project","listing-execute","listing-website","listing-format","listing-language","listing-date-format","listing-title-block-banner","listing-toc","listing-citation","listing-appendix-cite-as","listing-appendix-style","listing-freeze","listing-include-back-link","listing-title","listing-date","listing-draft","listing-haiku","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-chapters'] = new List('listing-chapters', options);
+    window['quarto-listings']['listing-advanceR_chapters'] = new List('listing-advanceR_chapters', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-chapters .list');
+    const listingTargetEl = window.document.querySelector('#listing-stat_rethinking_chapters .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-chapters'] = new List('listing-chapters', options);
+    window['quarto-listings']['listing-stat_rethinking_chapters'] = new List('listing-stat_rethinking_chapters', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -195,8 +195,8 @@ window.Quarto = {
 <span class="menu-text">epi</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../learn/art/index.html"> 
-<span class="menu-text">art</span></a>
+    <a class="nav-link" href="../../learn/stats/index.html"> 
+<span class="menu-text">stats</span></a>
   </li>  
 </ul>
 <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -232,19 +232,19 @@ window.Quarto = {
 </style>
 </div>
 <section id="advanced-r" class="level2"><h2 class="anchored" data-anchor-id="advanced-r">Advanced R</h2>
-<div id="listing-chapters" class="quarto-listing quarto-listing-container-default">
+<div id="listing-advanceR_chapters" class="quarto-listing quarto-listing-container-custom">
 <div class="list blog">
     
-    <div class="blog-entry" data-index="0" data-listing-date-sort="1728529056000" data-listing-file-modified-sort="1728529014195" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3649">
+    <div class="blog-entry" data-index="0" data-listing-date-sort="1717214400000" data-listing-file-modified-sort="1728576210257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2891">
         <div class="metadata">          
-            <p class="date listing-date">Oct, 24</p>
+            <p class="date listing-date">Jun, 24</p>
         </div>
         <div class="body">
-            <p class="title listing-title"><a href="../../learn/advanceR/Stat_Rethinking/ch1_3/index.html">Chapters 1–2</a></p>
+            <p class="title listing-title"><a href="../../learn/advanceR/advanceR/chap1_3/index.html">Chapters 1–3</a></p>
 
             
 
-            <p class="description listing-description">The Golem of Prague - Jewish mythical creature that is awakened and commanded by truth but lacks wisdom. Its lack of discernment renders him dangerous and vulnerable to the…</p>
+            <p class="description listing-description">If you’d like to know your way around the programming environment, you first have to understand how R’s OOP works. Binding is one of the most basic functions performed in <code>R</code> s…</p>
             
             
         </div>
@@ -252,11 +252,11 @@ window.Quarto = {
         
         <div class="haiku">
             
-                Thought you were normal
+                What's in a name?
             
-                 / but Bayes says you're different;
+                 / That which we call a rose
             
-                 / heart's torn, you or him.
+                 / by any other name would smell as sweet.
             
         </div>
         
@@ -268,10 +268,10 @@ No matching items
 </div>
 </div>
 </section><section id="statistical-rethinking" class="level2"><h2 class="anchored" data-anchor-id="statistical-rethinking">Statistical Rethinking</h2>
-<div id="listing-chapters" class="quarto-listing quarto-listing-container-custom">
+<div id="listing-stat_rethinking_chapters" class="quarto-listing quarto-listing-container-custom">
 <div class="list blog">
     
-    <div class="blog-entry" data-index="0" data-listing-date-sort="1728529056000" data-listing-file-modified-sort="1728529014195" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3649">
+    <div class="blog-entry" data-index="0" data-listing-date-sort="1728577619000" data-listing-file-modified-sort="1728574810465" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3774">
         <div class="metadata">          
             <p class="date listing-date">Oct, 24</p>
         </div>
@@ -306,7 +306,7 @@ No matching items
 
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

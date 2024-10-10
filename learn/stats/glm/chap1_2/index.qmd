@@ -1,5 +1,5 @@
 ---
-title: "Deault Title Here"
+title: "Default Title Here"
 date: now
 description: "Subtitle Here"
 format:
@@ -9,7 +9,6 @@ format:
     code-tools: true
     code-overflow: wrap
     code-line-numbers: true
-#doi: 10.59350/wx5k1-ajc38
 citation: false
 draft: false
 ---

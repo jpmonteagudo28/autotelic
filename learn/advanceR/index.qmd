@@ -1,7 +1,7 @@
 ---
 title: "Programming"
-# date: "may, 2024"
-# date-format: "MMM, YY"
+date: "oct, 2024"
+date-format: "MMM, YY"
 format:
   html:
     css: /learn/style.css
@@ -12,18 +12,24 @@ citation: false
 code-tools: false
 comments: false
 engine: knitr
-freeze: false
+freeze: auto
 listing:
-  - id: chapters
-    contents:  "/advanceR/**/index.qmd"
-  - id: chapters
-    contents:  "/Stat_Rethinking/**/index.qmd"
+  - id: advanceR_chapters   # Unique ID for advanceR
+    contents: "advanceR/**/index.qmd"  # Adjusted for absolute path structure
     feed: true
     sort: false
     template: ../../html/learn/listing.ejs
     categories: false
-    max-items: 5
-    page-size: 5
+    max-items: 3
+    page-size: 3
+  - id: stat_rethinking_chapters   # Unique ID for Stat_Rethinking
+    contents: "Stat_Rethinking/**/index.qmd"  # Adjusted for absolute path structure
+    feed: true
+    sort: false
+    template: ../../html/learn/listing.ejs
+    categories: false
+    max-items: 3
+    page-size: 3
 ---
 
 ```{css, echo=FALSE}
@@ -34,10 +40,10 @@ listing:
 
 ## Advanced R
 
-::: {#chapters}
+::: {#advanceR_chapters}
 :::
 
 ## Statistical Rethinking
 
-:::{#chapters}
+:::{#stat_rethinking_chapters }
 :::

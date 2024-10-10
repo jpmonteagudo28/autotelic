@@ -6,15 +6,16 @@
       version="2.0">
 <channel>
 <title>autotelic</title>
-<link>https://learn.jpmonteagudo.com/learn/epi/</link>
-<atom:link href="https://learn.jpmonteagudo.com/learn/epi/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://learn.jpmonteagudo.com/learn/stats/</link>
+<atom:link href="https://learn.jpmonteagudo.com/learn/stats/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.41</generator>
-<lastBuildDate>Thu, 10 Oct 2024 16:27:06 GMT</lastBuildDate>
+<lastBuildDate>Thu, 10 Oct 2024 16:27:15 GMT</lastBuildDate>
 <item>
-  <title>Deault Title Here</title>
-  <link>https://learn.jpmonteagudo.com/learn/epi/epi_des/chap1_2/</link>
+  <title>Default Title Here</title>
+  <link>https://learn.jpmonteagudo.com/learn/stats/glm/chap1_2/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -31,8 +32,8 @@
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://learn.jpmonteagudo.com/learn/epi/epi_des/chap1_2/</guid>
-  <pubDate>Thu, 10 Oct 2024 16:27:06 GMT</pubDate>
+  <guid>https://learn.jpmonteagudo.com/learn/stats/glm/chap1_2/</guid>
+  <pubDate>Thu, 10 Oct 2024 16:27:15 GMT</pubDate>
 </item>
 </channel>
 </rss>

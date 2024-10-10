@@ -1,0 +1,15 @@
+{
+  "hash": "5c5e210fb735536f30993a812160dab5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Programming\"\ndate: \"oct, 2024\"\ndate-format: \"MMM, YY\"\nformat:\n  html:\n    css: /learn/style.css\n    grid:\n      body-width: 800px\n      sidebar-width: 250px\ncitation: false\ncode-tools: false\ncomments: false\nengine: knitr\nfreeze: auto\nlisting:\n  - id: advanceR_chapters   # Unique ID for advanceR\n    contents: \"advanceR/**/index.qmd\"  # Adjusted for absolute path structure\n    feed: true\n    sort: false\n    template: ../../html/learn/listing.ejs\n    categories: false\n    max-items: 3\n    page-size: 3\n  - id: stat_rethinking_chapters   # Unique ID for Stat_Rethinking\n    contents: \"Stat_Rethinking/**/index.qmd\"  # Adjusted for absolute path structure\n    feed: true\n    sort: false\n    template: ../../html/learn/listing.ejs\n    categories: false\n    max-items: 3\n    page-size: 3\n---\n\n::: {.cell}\n<style type=\"text/css\">\n#title-block-header .description {\n    display: none;\n}\n</style>\n:::\n\n\n\n\n## Advanced R\n\n::: {#advanceR_chapters}\n:::\n\n## Statistical Rethinking\n\n:::{#stat_rethinking_chapters }\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

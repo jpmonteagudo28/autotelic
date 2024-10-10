@@ -1,6 +1,6 @@
 ---
 title: "Chapters 1–3"
-date: now
+date: "jun,2024"
 format:
   html:
     css: /learn/style.css
@@ -9,7 +9,6 @@ format:
     code-tools: true
     code-overflow: wrap
     code-line-numbers: false
-#doi: 10.59350/wx5k1-ajc38
 citation: false
 draft: false
 haiku:

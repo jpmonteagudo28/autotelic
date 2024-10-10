@@ -19,6 +19,7 @@ website:
   repo-url: "https://github.com/jpmonteagudo28/autotelic"
   reader-mode: false
   page-navigation: true
+  back-to-top-navigation: true
   
   google-analytics: "G-SM9D5VRX5P"
 
@@ -38,8 +39,8 @@ website:
         href: learn/advanceR/index.qmd
       - text: "epi"
         href: learn/epi/index.qmd
-      - text: "art"
-        href: learn/art/index.qmd
+      - text: "stats"
+        href: learn/stats/index.qmd
             
         
     right:

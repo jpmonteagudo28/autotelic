@@ -10,7 +10,1385 @@
 <atom:link href="https://learn.jpmonteagudo.com/learn/advanceR/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.41</generator>
-<lastBuildDate>Thu, 10 Oct 2024 02:57:36 GMT</lastBuildDate>
+<lastBuildDate>Thu, 10 Oct 2024 16:26:59 GMT</lastBuildDate>
+<item>
+  <title>Chapters 1–2</title>
+  <link>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/</link>
+  <description><![CDATA[ <section id="chapter-1" class="level2"><h2 class="anchored" data-anchor-id="chapter-1">Chapter 1</h2>
+<section id="of-models-and-monsters" class="level3"><h3 class="anchored" data-anchor-id="of-models-and-monsters">Of Models and Monsters</h3>
+<ul>
+<li><p>The Golem of Prague - Jewish mythical creature that is awakened and commanded by truth but lacks wisdom. Its lack of discernment renders him dangerous and vulnerable to the work of evil agents.</p></li>
+<li><p>Statistical models are like golems, set up and commanded by truth to obey without complaints but unable to discern context and usefulness.</p></li>
+<li><p>A clear and urgent need for a unified theory of statistics that allows for flexibility and freedom in designing, building and refining special-purpose statistical procedures. Classic statistics tests are rigid and applicable to only a handful of procedures; but even those tests that offer more flexibility, like <strong>ordinary linear regression</strong> relies on strong assumptions that lead to catastrophic results if violated.</p></li>
+</ul></section><section id="the-monster-of-deductive-falsification-df" class="level3"><h3 class="anchored" data-anchor-id="the-monster-of-deductive-falsification-df">The Monster of Deductive Falsification (DF)</h3>
+<ul>
+<li>DF is impossible in nearly every scientific context:
+<ul>
+<li>NHST is not falsificationist since it doesn’t falsify the research hypothesis, but the null of no effect.</li>
+<li>Hypothesis are not models. One hypothesis may be represented by many different models, and nay given statistical model may correspond to more than one hypothesis.</li>
+<li>Possible solution: Compare more than one model. All statistical tests are also models.</li>
+</ul>
+</li>
+</ul></section><section id="the-weapons-of-the-fight" class="level3"><h3 class="anchored" data-anchor-id="the-weapons-of-the-fight">The Weapons of the Fight</h3>
+<ul>
+<li>Bayesian data analysis
+<ul>
+<li>count the number of ways things can happen, according to your assumptions.</li>
+<li>Randomness is a property of information, not the world.</li>
+</ul>
+</li>
+<li>Multilevel models
+<ul>
+<li>The Earth stands on the back of an elephant, which stands on the back of a turtle. Where does the turtle stand? “It’s turtles all the way down”…for us it’s parameters all the way down.</li>
+<li><strong>Multilevel regression deserves to be the default form of regression</strong></li>
+<li>To adjust estimates for repeat sampling</li>
+<li>To adjust estimates for imbalance in sampling</li>
+<li>To study variation</li>
+<li>To avoid averaging</li>
+</ul>
+</li>
+<li>Model comparison using uniform criteria
+<ul>
+<li>Model comparison based on future predictive accuracy</li>
+</ul>
+</li>
+</ul></section><section id="where-to-go-from-here" class="level3"><h3 class="anchored" data-anchor-id="where-to-go-from-here">Where to Go from Here?</h3>
+<ul>
+<li>
+<strong>Chapter 2 and 3</strong> - foundation Bayesian inference tools</li>
+<li>
+<strong>Chapter 4 - 7</strong> - build multiple linear regression as Bayesian tools.</li>
+<li>
+<strong>Chapter 8 - 11</strong> - generalized linear models:
+<ul>
+<li>Markov Chain Monte Carlo (MCMC)</li>
+<li>Maximum Entropy</li>
+<li>Model details</li>
+</ul>
+</li>
+<li>
+<strong>Chapter 12 - 14</strong> - Multilevel models, linear and generalized, missing data, measurement error, and spatial correlation.</li>
+<li>
+<strong>Chapter 15</strong> - returns to some of the issues raised in Chapter 1.</li>
+</ul></section></section><section id="chapter-2---small-worlds-and-large-worlds" class="level2"><h2 class="anchored" data-anchor-id="chapter-2---small-worlds-and-large-worlds">Chapter 2 - Small Worlds and Large Worlds</h2>
+<p>Christopher Colombo miscalculated the diameter of the earth– he thought it was smaller (30,000 km instead of 40,000), landed in the Bahamas and discover a new world.</p>
+<ul>
+<li>The model is the small world, and we hope to deploy it in the large world of reality and be useful.</li>
+<li>Bayesian models are optimal in small worlds, but need to be demonstrated rather than logically deduced in large worlds.</li>
+</ul>
+<section id="the-garden-of-forking-data" class="level3"><h3 class="anchored" data-anchor-id="the-garden-of-forking-data">The garden of forking data</h3>
+<ul>
+<li>Consider everything that could have happened.</li>
+</ul>
+<ol type="1">
+<li>Count the possibilities</li>
+<li>Use prior information
+<ul>
+<li>from previous data</li>
+<li>knowledge of how the process works</li>
+<li>Act as if you had prior information
+<ul>
+<li>multiply the prior count by the new count</li>
+<li>When we have previous information suggesting there are <img src="https://latex.codecogs.com/png.latex?W_%7Bprior%7D"> ways for a conjecture to produce a previous observation <img src="https://latex.codecogs.com/png.latex?D_%7Bprior%7D"> and,</li>
+<li>We acquire new observations <img src="https://latex.codecogs.com/png.latex?D_%7Bnew%7D"> then the same conjecture can produce in <img src="https://latex.codecogs.com/png.latex?W_%7Bnew%7D"> ways</li>
+<li>the number of ways the conjecture can account for <img src="https://latex.codecogs.com/png.latex?D_%7Bprior%7D"> and <img src="https://latex.codecogs.com/png.latex?D_%7Bnew%7D"> is the product of <img src="https://latex.codecogs.com/png.latex?W_%7Bprior%7D%20%5Ctimes%20W_%7Bnew%7D">.</li>
+</ul>
+</li>
+<li>from count to probability <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%5Ctext%7BPlausibility%20of%7D%20X%20%5Ctext%7B%20after%20observing%20%7D%20x%20%5C%5C%0A%5Cpropto%20%5Ctext%7B%20ways%20%7D%20X%20%5Ctext%7B%20can%20produce%20%7D%20x%20%5C%5C%0A%5Ctimes%20%5Ctext%7B%20prior%20plausibility%20of%20%7D%20X%0A%5Cend%7Bsplit%7D%0A">
+<ul>
+<li>standardize the probabilities (divide by the sum of products)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>A few things to define:</p>
+<ul>
+<li>the <strong>parameter</strong> is the conjectured proportion of blue marbles.</li>
+<li>the <strong>likelihood</strong> is the relative number of ways that a <em>p</em> value can produce the data</li>
+<li>the <strong>prior probability</strong> is the prior plausibility of any specific <em>p</em> values</li>
+<li>the <strong>posterior probability</strong> is the new, updated plausibility of any specific <em>p</em>
+</li>
+</ul></section><section id="building-a-model" class="level3"><h3 class="anchored" data-anchor-id="building-a-model">Building a model</h3>
+<p>Working with a toy model to get an idea of how Bayesian inference works</p>
+<blockquote class="blockquote">
+<p>Suppose you have a globe representing our planet, the Earth. This version of the world is small enough to hold in your hands. You are curious how much of the surface is covered in water. You adopt the following strategy: You will toss the globe up in the air. When you catch it, you will record whether or not the surface under your right index finger is water or land. Then you toss the globe up in the air again and repeat the procedure</p>
+</blockquote>
+<p>but first, there are assumptions that constitute the model:</p>
+<ol type="1">
+<li>Data story: motivate the model by narrating how the data might arise
+<ul>
+<li>How the data came to be
+<ul>
+<li>Descriptive story</li>
+<li>Causal story _ Involves restating:
+<ul>
+<li>the true proportion of the conjecture, <em>p</em>
+</li>
+<li>the probability of producing an alternative conjecture, <img src="https://latex.codecogs.com/png.latex?1-p">
+</li>
+<li>independence of conjectures</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update: Educate your model by feeding it the data
+<ul>
+<li>Begins with prior plausibilities</li>
+<li>Updates them in light of the data</li>
+<li>A model can be updated forward-in-time, backwards or all-at-once. It can mathematically divide out the observations to infer the previous plausibility curve.</li>
+<li>A bad prior leads to misleading results just like bad estimators in Fisherian inference lead to bad results.</li>
+</ul>
+</li>
+<li>Evaluate: All statistical models require supervision, leading possibly to model revision.
+<ul>
+<li>Real world data must be accurately described to the model.</li>
+<li>Models are never true to reality so there’s no point in checking the truth of the model.</li>
+<li>You either fail or succeed at recognizing the falseness of the model.</li>
+<li>Check adequacy of the model, not its truth.</li>
+</ul>
+</li>
+</ol>
+<p><em>Likelihood</em>: the probability of any possible observation, for any possible state of the small world.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(w%7Cn,p)%20=%20%5Cfrac%7Bn!%7D%7Bw!(n%20-%20w)!%7Dp%5Ew(1-p)%5E%7B(n-w)%7D%0A"></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Only two outcomes, W and L so p = 0.5, n = 9</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">w</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,size <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, prob <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">w</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#&gt; [1] 0.164</span></span></code></pre></div>
+</div>
+<p><em>Parameters</em>: the adjustable inputs (<img src="https://latex.codecogs.com/png.latex?n,p,w">)</p>
+<p><em>Priors</em>: for every parameter, there must be a prior probability and constrain the parameters to reasonable ranges.</p>
+<p><em>Posteriors</em>: unique set of estimates for every combination of data, likelihood, parameters and priors that takes the form of the probability of the parameters, conditional on the data <img src="https://latex.codecogs.com/png.latex?P(p%7Cn,w)">, defined by <strong>Bayes theorem</strong></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AP(w,p)%20=%20P(w%7Cn,p)P(p)%0AP(w,p)%20=%20P(p%7Cw,n)P(w)%0A"> Bayes’ theorem is just the posterior probability of p given w. The product of the likelihood and prior, divided by <img src="https://latex.codecogs.com/png.latex?P(w)">, the average likelihood over the prior<sup>1</sup>. <img src="https://latex.codecogs.com/png.latex?%0AP(p%7Cw,n)%20=%20%5Cfrac%7BP(w%7Cp)P(p)%7D%7BP(w)%7D%0A"></p>
+</section><section id="making-the-model-go" class="level3"><h3 class="anchored" data-anchor-id="making-the-model-go">Making the model go</h3>
+<p>The core of the model, its motor, conditions the prior on the data, which can be done without forcing simple and rigid forms of prior that are easy to work with in three of many ways:</p>
+<ul>
+<li>Grid approximation
+<ul>
+<li>continuous parameters</li>
+<li>only useful as a teaching tool</li>
+<li>Scales very poorly</li>
+<li>define the grid: how many points to use in estimating the posterior, then make a list of parameters in the grid.</li>
+<li>compute the value of the prior at each parameter value on the grid</li>
+<li>compute the unstandardized posterior at each parameter value</li>
+<li>standardize the posterior</li>
+</ul>
+</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Setting global parameter for base plots</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>bg <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define the grid</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,length.out <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># define the prior</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">prior</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># compute the likelihood @ each value on the grid</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>,prob <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># compute product of likelihood and prior</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">unstd_posterior</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">prior</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># standardize the posterior</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">posterior</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span>,<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">posterior</span>, type <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"b"</span>,</span>
+<span>     bty<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>,</span>
+<span>     pch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>,</span>
+<span>     col <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#7c225c"</span>,</span>
+<span>     family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">font_family</span>,</span>
+<span>     xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability of water"</span>,</span>
+<span>     ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"20 points"</span>, family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="index_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># You can try sparser (&lt;20) or denser grids (&gt;100). The correct density </span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># for your grid depends on how accurate you want your approximation to be.</span></span></code></pre></div>
+</div>
+<ul>
+<li>Quadratic approximation
+<ul>
+<li>Called quadratic approximation because the log of a normal distribution forms a parabola</li>
+<li>the posterior distribution can be approximated by a Gaussian, under general conditions</li>
+<li>We can make use of only two parameters, its center and spread</li>
+<li>Find the peak of the posterior (its center), then estimate the curvature near the peak</li>
+<li>compute quadratic approximation using this estimate</li>
+<li>as <em>n</em> increases, the quadratic approximation gets better</li>
+<li>equivalent to maximum likelihood estimate (MLE) and its standard error</li>
+</ul>
+</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Setting global parameter for base plots</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>bg <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">rethinking</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">globe_quad_approx</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/pkg/rethinking/man/quap.html">map</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span>  </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/list.html">alist</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span>    </span>
+<span>    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">w</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>,<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># binomial likelihood</span></span>
+<span>    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Uniform.html">dunif</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># uniform prior</span></span>
+<span>  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>  data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>w <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># display summary of quad. approximation</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/pkg/rethinking/man/precis.html">precis</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">globe_quad_approx</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#&gt;    mean    sd  5.5% 94.5%</span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#&gt; p 0.667 0.157 0.416 0.918</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Compare the quad. approximation to the analytical solution</span></span>
+<span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">w</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">n</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># exact posterior</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span></span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">x</span>,</span>
+<span>            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">w</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,</span>
+<span>            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">n</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">w</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>      <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,</span>
+<span>  xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"proportion water"</span>,</span>
+<span>  ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"density"</span>,</span>
+<span>  bty <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>,</span>
+<span>  family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># quad. approximation</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">x</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.67</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.16</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, lty <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, add <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>,</span>
+<span>      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"proportion water"</span>,</span>
+<span>      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"density"</span>,</span>
+<span>       col <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#7c225c"</span>,</span>
+<span>      bty <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>,</span>
+<span>      family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="index_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>MCMC
+<ul>
+<li>models for which grid or quadratic approximation are always satisfactory.</li>
+<li>doesn’t compute or approximates the posterior but draws samples from the posterior.</li>
+<li>Results in a collection of parameters and its frequencies which correspond to the posterior plausibilities.</li>
+</ul>
+</li>
+</ul></section></section><section id="practice-problems" class="level2"><h2 class="anchored" data-anchor-id="practice-problems">Practice Problems</h2>
+<section id="m1" class="level4"><h4 class="anchored" data-anchor-id="m1">2M1</h4>
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">## 2M1(i,ii,iii)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create function to compute prior, likelihood, posterior and print posterior plot</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">trials</span>, </span>
+<span>                                  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">successes</span>,</span>
+<span>                                  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">grid_points</span>,</span>
+<span>                                  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">...</span>,</span>
+<span>                                  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">mtext_label</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>,</span>
+<span>                                  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">xlab</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>, </span>
+<span>                                  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">ylab</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span>  </span>
+<span>  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">args</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">...</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>  </span>
+<span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define the grid</span></span>
+<span>  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, length.out <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">grid_points</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>  </span>
+<span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define the prior</span></span>
+<span>  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">prior</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"prior"</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"><a href="https://mc-stan.org/posterior/reference/match.html">%in%</a></span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">args</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">args</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">prior</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">grid_points</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>  </span>
+<span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ensure the prior length matches grid_points</span></span>
+<span>  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">prior</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">grid_points</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span>    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Length of prior must match grid_points"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span>  </span>
+<span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Compute the likelihood for each value in the grid</span></span>
+<span>  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">successes</span>,<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">trials</span>,prob <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>  </span>
+<span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Compute unstandardized posterior</span></span>
+<span>  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">unstd_posterior</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">prior</span></span>
+<span>  </span>
+<span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Standardize posterior</span></span>
+<span>  <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">posterior</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>  </span>
+<span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span>, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">posterior</span>, type <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"b"</span>,</span>
+<span>       bty <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>,</span>
+<span>         xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">xlab</span>,</span>
+<span>         ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">ylab</span>,</span>
+<span>       pch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>, </span>
+<span>       col <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#7c225c"</span>,</span>
+<span>       family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">mtext_label</span>, </span>
+<span>          family <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>    </span>
+<span>    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Placement of x-axis</span></span>
+<span>    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, lwd <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span>    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Placement of y-axis</span></span>
+<span>    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, lwd <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>mfrow <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, </span>
+<span>    bg <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span>                      mtext_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"100 %success"</span>,</span>
+<span>                      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability water"</span>,</span>
+<span>                      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span>                      mtext_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"75% success"</span>,</span>
+<span>                      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability water"</span>,</span>
+<span>                      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span>                      mtext_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"71% success"</span>,</span>
+<span>                      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability water"</span>,</span>
+<span>                      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="index_files/figure-html/medium-problems-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/medium-problems-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="m2" class="level4"><h4 class="anchored" data-anchor-id="m2">2M2</h4>
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Setting global parameter for base plots</span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>mfrow <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>, bg <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 2M2 - assume a prior equal to zero when p &lt; 0.5 </span></span>
+<span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># and a positive constant when p &gt;= 0.5</span></span>
+<span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,length.out <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,</span>
+<span>                      grid_points <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span>                      prior <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>                      mtext_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"100% success"</span>,</span>
+<span>                      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability water"</span>,</span>
+<span>                      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,</span>
+<span>                      grid_points <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span>                      prior <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>                      mtext_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"75% success"</span>,</span>
+<span>                      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability water"</span>,</span>
+<span>                      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span></span>
+<span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>,</span>
+<span>                      grid_points <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>,</span>
+<span>                      prior <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span>,</span>
+<span>                      mtext_label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"71% success"</span>,</span>
+<span>                      xlab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"probability water"</span>,</span>
+<span>                      ylab <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span></code></pre></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="index_files/figure-html/medium-probs-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/medium-probs-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="m3" class="level4"><h4 class="anchored" data-anchor-id="m3">2M3</h4>
+<p>Show that the posterior probability of tossing the Earth given a land observation is <img src="https://latex.codecogs.com/png.latex?P(E%7CL)%20=%20.23"> if the probability of observing water on the Earth is <img src="https://latex.codecogs.com/png.latex?P(W%7CE)%20=%20.7"> and on Mars <img src="https://latex.codecogs.com/png.latex?P(W%7CM)%20=%200">. Assume <img src="https://latex.codecogs.com/png.latex?P(E)%20%20=.5"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0AL%20=%20Land,%20W%20=%20Water,%20E%20=%20Earth,%20M%20=%20Mars%20%5C%5C%0A%5C%5C%0AP(L%7CE)%20=%200.3%20%5C%5C%0AP(E)%20=%200.5%20%5C%5C%0AP(M)%20=%200.5%20%5C%5C%0AP(L%7CM)%20=%201%20%5C%5C%20%5C%5C%0AP(E%7CL)%20=%20%5Cfrac%7BP(L%7CE)P(E)%7D%7BP(L)%7D%5C%5C%20%5C%5C%0AP(E%7CL)%20=%20%5Cfrac%7B.3%5Ctimes%20.5%7D%7B(0.3%20%5Ctimes%20.5%20+%201%5Ctimes%20.5)%7D%5C%5C%20%5C%5C%0AP(E%7CL)%20=%20.231%0A%5Cend%7Bsplit%7D%0A"></p>
+</section><section id="m4" class="level4"><h4 class="anchored" data-anchor-id="m4">2M4</h4>
+<p>One deck of cards with three cards. One card has two black sides, another has one black and one white side. The third one has two white sides. Show that <img src="https://latex.codecogs.com/png.latex?P(B2%7CB1)%20=%20%5Cfrac%7B2%7D%7B3%7D"> using the counting method.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0AP(B%5E2)%20=%20P(B_%7Bw%7D)%20=%20P(W%5E2)%20=%201/3%20%5C%5C%20%5C%5C%0AP(B)%20=%20P(W)%20=%201/2%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%20%5Cfrac%7BP(B%5E2%20%5Ccap%20B_%7B1%7D)%7D%7BP(B_%7Bt%7D)%7D%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%20%5Cfrac%7B0.3333%7D%7B(0.333%20%5Ctimes%200.5%20+%200.333%20%5Ctimes%201%20+%200.333%20%5Ctimes%200)%7D%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%200.667%20=%20%5Cfrac%7B2%7D%7B3%7D%0A%5Cend%7Bsplit%7D%0A"></p>
+</section><section id="m5" class="level4"><h4 class="anchored" data-anchor-id="m5">2M5</h4>
+<p>Similar scenario but 4 cards and <img src="https://latex.codecogs.com/png.latex?P(B%5E2)%20=%201/2">. What’s the probability of getting a second black card after getting one black side.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0AP(B%5E2)%20=%201/2%20%5C%5C%20%5C%5C%0AP(B_%7Bw%7D)%20=%20P(W%5E2)%20=%201/4%20%5C%5C%20%5C%5C%0AP(B)%20=%205/8%20%5C%5C%20%5C%5C%0AP(W)%20=%203/8%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%20%5Cfrac%7BP(B%5E2%20%5Ccap%20B_%7B1%7D)%7D%7BP(B_%7Bt%7D)%7D%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%20%5Cfrac%7B0.50%7D%7B0.625%7D%20%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CP_%7B1%7D)%20=%200.80%20=%20%5Cfrac%7B4%7D%7B5%7D%0A%5Cend%7Bsplit%7D%0A"></p>
+</section><section id="h1" class="level4"><h4 class="anchored" data-anchor-id="h1">2H1</h4>
+<p>Initially, had trouble seeing that I only had to use the law of total probability to get the total, unconditioned probability of twins <img src="https://latex.codecogs.com/png.latex?P(T)">. Once I figured that out, finding the probability of a second twin birth <img src="https://latex.codecogs.com/png.latex?P(T_%7B2%7D%7CT_%7B1%7D)"> was easy to find.</p>
+<img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bsplit%7D%0AP(T%7CT)%20=%20x%20%5C%5C%20%5C%5C%0AP(B_%7B1%7D)%20=%20P(B_%7B2%7D)%20=%200.5%20%5C%5C%20%5C%5C%0AP(T%7CB_%7B1%7D)%20=%200.10%20%5C%5C%20%5C%5C%0AP(T%7CB_%7B2%7D)%20=%200.20%20%5C%5C%20%5C%5C%0A%5Ctext%7BTotal%20probability%20of%20twins%7D%20%5C%5C%0AP(T)%20=%20P(T%7CB_%7B1%7D)P(B_%7B1%7D)%20+%20P(T%7CB_%7B2%7D)P(B_%7B2%7D)%20%5C%5C%20%5C%5C%0AP(T)%20=%200.10%20%5Ctimes%200.50%20+%200.20%20%5Ctimes%200.50%20=%200.15%20%5C%5C%20%5C%5C%0A%0A%5Ctext%7BProbability%20of%20observing%20first%20species%20given%20a%20twin%20birth%7D%20%5C%5C%0AP(B_%7B1%7D%7CT)%20=%20%5Cfrac%7BP(T%7CB_%7B1%7D)P(B)%7D%7BP(T)%7D%20=%200.333%5C%5C%20%5C%5C%0AP(B_%7B2%7D%7CT)%20=%201%20-%20P(%5Cbar%7BB_%7B2%7D%7D)%20=%200.667%20%5C%5C%20%5C%5C%0A%5Ctext%7BProbability%20of%20a%20second%20twin%20birth%20regardless%20of%20species%7D%20%5C%5C%0AP(T_%7B2%7D%7CT_%7B1%7D)%20=%20P(T%7CB_%7B1%7D)P(B_%7B1%7D%7CT)%20+%20P(T%7CB_%7B2%7D)P(B_%7B2%7D%7CT)%20%5C%5C%20%5C%5C%0AP(T_%7B2%7D%7CT_%7B1%7D)%20=%200.10%20%5Ctimes%200.333%20+%200.20%20%5Ctimes%200.667%20=%200.167%0A%5Cend%7Bsplit%7D">
+
+
+<!-- -->
+
+</section></section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1"><p><img src="https://latex.codecogs.com/png.latex?P(w)%20=%20E(P(w%7Cp))%20=%20%5Cint%20P(w%7Cp)P(p)%5Cpartial%20p">↩︎</p></li>
+</ol></section></div> ]]></description>
+  <guid>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/</guid>
+  <pubDate>Thu, 10 Oct 2024 16:26:59 GMT</pubDate>
+</item>
 <item>
   <title>Chapters 1–3</title>
   <link>https://learn.jpmonteagudo.com/learn/advanceR/advanceR/chap1_3/</link>
@@ -3830,7 +5208,7 @@ font-style: inherit;">#|  $ y: int [1:3, 1:5] 1 2 3 4 5 6 7 8 9 10 ...</span></s
 
 <!-- -->
 
-</section></section><div id="quarto-appendix"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+</section></section><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 <ol>
 <li id="fn1"><p>Check out the complete list of restricted names in <code><a href="https://rdrr.io/r/base/Reserved.html">?Reserved</a></code>↩︎</p></li>
 <li id="fn2"><p><strong>ALTREP</strong>, or alternative representation, allows R to represent certain vectors in a very compact fashion. Number sequences are one example of this behavior since only the first and last numbers are stored. For this reason every sequence is the same size, 680B.↩︎</p></li>
@@ -3845,1376 +5223,7 @@ font-style: inherit;">#|  $ y: int [1:3, 1:5] 1 2 3 4 5 6 7 8 9 10 ...</span></s
 <li id="fn11"><p>Review the documentation for <code>AsIs()</code>↩︎</p></li>
 </ol></section></div> ]]></description>
   <guid>https://learn.jpmonteagudo.com/learn/advanceR/advanceR/chap1_3/</guid>
-  <pubDate>Thu, 10 Oct 2024 02:57:36 GMT</pubDate>
-</item>
-<item>
-  <title>Chapters 1–2</title>
-  <link>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/</link>
-  <description><![CDATA[ <section id="chapter-1" class="level2"><h2 class="anchored" data-anchor-id="chapter-1">Chapter 1</h2>
-<section id="of-models-and-monsters" class="level3"><h3 class="anchored" data-anchor-id="of-models-and-monsters">Of Models and Monsters</h3>
-<ul>
-<li><p>The Golem of Prague - Jewish mythical creature that is awakened and commanded by truth but lacks wisdom. Its lack of discernment renders him dangerous and vulnerable to the work of evil agents.</p></li>
-<li><p>Statistical models are like golems, set up and commanded by truth to obey without complaints but unable to discern context and usefulness.</p></li>
-<li><p>A clear and urgent need for a unified theory of statistics that allows for flexibility and freedom in designing, building and refining special-purpose statistical procedures. Classic statistics tests are rigid and applicable to only a handful of procedures; but even those tests that offer more flexibility, like <strong>ordinary linear regression</strong> relies on strong assumptions that lead to catastrophic results if violated.</p></li>
-</ul></section><section id="the-monster-of-deductive-falsification-df" class="level3"><h3 class="anchored" data-anchor-id="the-monster-of-deductive-falsification-df">The Monster of Deductive Falsification (DF)</h3>
-<ul>
-<li>DF is impossible in nearly every scientific context:
-<ul>
-<li>NHST is not falsificationist since it doesn’t falsify the research hypothesis, but the null of no effect.</li>
-<li>Hypothesis are not models. One hypothesis may be represented by many different models, and nay given statistical model may correspond to more than one hypothesis.</li>
-<li>Possible solution: Compare more than one model. All statistical tests are also models.</li>
-</ul>
-</li>
-</ul></section><section id="the-weapons-of-the-fight" class="level3"><h3 class="anchored" data-anchor-id="the-weapons-of-the-fight">The Weapons of the Fight</h3>
-<ul>
-<li>Bayesian data analysis
-<ul>
-<li>count the number of ways things can happen, according to your assumptions.</li>
-<li>Randomness is a property of information, not the world.</li>
-</ul>
-</li>
-<li>Multilevel models
-<ul>
-<li>The Earth stands on the back of an elephant, which stands on the back of a turtle. Where does the turtle stand? “It’s turtles all the way down”…for us it’s parameters all the way down.</li>
-<li><strong>Multilevel regression deserves to be the default form of regression</strong></li>
-<li>To adjust estimates for repeat sampling</li>
-<li>To adjust estimates for imbalance in sampling</li>
-<li>To study variation</li>
-<li>To avoid averaging</li>
-</ul>
-</li>
-<li>Model comparison using uniform criteria
-<ul>
-<li>Model comparison based on future predictive accuracy</li>
-</ul>
-</li>
-</ul></section><section id="where-to-go-from-here" class="level3"><h3 class="anchored" data-anchor-id="where-to-go-from-here">Where to Go from Here?</h3>
-<ul>
-<li>
-<strong>Chapter 2 and 3</strong> - foundation Bayesian inference tools</li>
-<li>
-<strong>Chapter 4 - 7</strong> - build multiple linear regression as Bayesian tools.</li>
-<li>
-<strong>Chapter 8 - 11</strong> - generalized linear models:
-<ul>
-<li>Markov Chain Monte Carlo (MCMC)</li>
-<li>Maximum Entropy</li>
-<li>Model details</li>
-</ul>
-</li>
-<li>
-<strong>Chapter 12 - 14</strong> - Multilevel models, linear and generalized, missing data, measurement error, and spatial correlation.</li>
-<li>
-<strong>Chapter 15</strong> - returns to some of the issues raised in Chapter 1.</li>
-</ul></section></section><section id="chapter-2---small-worlds-and-large-worlds" class="level2"><h2 class="anchored" data-anchor-id="chapter-2---small-worlds-and-large-worlds">Chapter 2 - Small Worlds and Large Worlds</h2>
-<p>Christopher Colombo miscalculated the diameter of the earth– he thought it was smaller (30,000 km instead of 40,000), landed in the Bahamas and discover a new world.</p>
-<ul>
-<li>The model is the small world, and we hope to deploy it in the large world of reality and be useful.</li>
-<li>Bayesian models are optimal in small worlds, but need to be demonstrated rather than logically deduced in large worlds.</li>
-</ul>
-<section id="the-garden-of-forking-data" class="level3"><h3 class="anchored" data-anchor-id="the-garden-of-forking-data">The garden of forking data</h3>
-<ul>
-<li>Consider everything that could have happened.</li>
-</ul>
-<ol type="1">
-<li>Count the possibilities</li>
-<li>Use prior information
-<ul>
-<li>from previous data</li>
-<li>knowledge of how the process works</li>
-<li>Act as if you had prior information
-<ul>
-<li>multiply the prior count by the new count</li>
-<li>When we have previous information suggesting there are <img src="https://latex.codecogs.com/png.latex?W_%7Bprior%7D"> ways for a conjecture to produce a previous observation <img src="https://latex.codecogs.com/png.latex?D_%7Bprior%7D"> and,</li>
-<li>We acquire new observations <img src="https://latex.codecogs.com/png.latex?D_%7Bnew%7D"> then the same conjecture can produce in <img src="https://latex.codecogs.com/png.latex?W_%7Bnew%7D"> ways</li>
-<li>the number of ways the conjecture can account for <img src="https://latex.codecogs.com/png.latex?D_%7Bprior%7D"> and <img src="https://latex.codecogs.com/png.latex?D_%7Bnew%7D"> is the product of <img src="https://latex.codecogs.com/png.latex?W_%7Bprior%7D%20%5Ctimes%20W_%7Bnew%7D">.</li>
-</ul>
-</li>
-<li>from count to probability <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%5Ctext%7BPlausibility%20of%7D%20X%20%5Ctext%7B%20after%20observing%20%7D%20x%20%5C%5C%0A%5Cpropto%20%5Ctext%7B%20ways%20%7D%20X%20%5Ctext%7B%20can%20produce%20%7D%20x%20%5C%5C%0A%5Ctimes%20%5Ctext%7B%20prior%20plausibility%20of%20%7D%20X%0A%5Cend%7Bsplit%7D%0A">
-<ul>
-<li>standardize the probabilities (divide by the sum of products)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>A few things to define:</p>
-<ul>
-<li>the <strong>parameter</strong> is the conjectured proportion of blue marbles.</li>
-<li>the <strong>likelihood</strong> is the relative number of ways that a <em>p</em> value can produce the data</li>
-<li>the <strong>prior probability</strong> is the prior plausibility of any specific <em>p</em> values</li>
-<li>the <strong>posterior probability</strong> is the new, updated plausibility of any specific <em>p</em>
-</li>
-</ul></section><section id="building-a-model" class="level3"><h3 class="anchored" data-anchor-id="building-a-model">Building a model</h3>
-<p>Working with a toy model to get an idea of how Bayesian inference works</p>
-<blockquote class="blockquote">
-<p>Suppose you have a globe representing our planet, the Earth. This version of the world is small enough to hold in your hands. You are curious how much of the surface is covered in water. You adopt the following strategy: You will toss the globe up in the air. When you catch it, you will record whether or not the surface under your right index finger is water or land. Then you toss the globe up in the air again and repeat the procedure</p>
-</blockquote>
-<p>but first, there are assumptions that constitute the model:</p>
-<ol type="1">
-<li>Data story: motivate the model by narrating how the data might arise
-<ul>
-<li>How the data came to be
-<ul>
-<li>Descriptive story</li>
-<li>Causal story _ Involves restating:
-<ul>
-<li>the true proportion of the conjecture, <em>p</em>
-</li>
-<li>the probability of producing an alternative conjecture, <img src="https://latex.codecogs.com/png.latex?1-p">
-</li>
-<li>independence of conjectures</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Update: Educate your model by feeding it the data
-<ul>
-<li>Begins with prior plausibilities</li>
-<li>Updates them in light of the data</li>
-<li>A model can be updated forward-in-time, backwards or all-at-once. It can mathematically divide out the observations to infer the previous plausibility curve.</li>
-<li>A bad prior leads to misleading results just like bad estimators in Fisherian inference lead to bad results.</li>
-</ul>
-</li>
-<li>Evaluate: All statistical models require supervision, leading possibly to model revision.
-<ul>
-<li>Real world data must be accurately described to the model.</li>
-<li>Models are never true to reality so there’s no point in checking the truth of the model.</li>
-<li>You either fail or succeed at recognizing the falseness of the model.</li>
-<li>Check adequacy of the model, not its truth.</li>
-</ul>
-</li>
-</ol>
-<p><em>Likelihood</em>: the probability of any possible observation, for any possible state of the small world.</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0AP(w%7Cn,p)%20=%20%5Cfrac%7Bn!%7D%7Bw!(n%20-%20w)!%7Dp%5Ew(1-p)%5E%7B(n-w)%7D%0A"></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Only two outcomes, W and L so p = 0.5, n = 9</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">w</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,size <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>, prob <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">w</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#&gt; [1] 0.164</span></span></code></pre></div>
-</div>
-<p><em>Parameters</em>: the adjustable inputs (<img src="https://latex.codecogs.com/png.latex?n,p,w">)</p>
-<p><em>Priors</em>: for every parameter, there must be a prior probability and constrain the parameters to reasonable ranges.</p>
-<p><em>Posteriors</em>: unique set of estimates for every combination of data, likelihood, parameters and priors that takes the form of the probability of the parameters, conditional on the data <img src="https://latex.codecogs.com/png.latex?P(p%7Cn,w)">, defined by <strong>Bayes theorem</strong></p>
-<p><img src="https://latex.codecogs.com/png.latex?%0AP(w,p)%20=%20P(w%7Cn,p)P(p)%0AP(w,p)%20=%20P(p%7Cw,n)P(w)%0A"> Bayes’ theorem is just the posterior probability of p given w. The product of the likelihood and prior, divided by <img src="https://latex.codecogs.com/png.latex?P(w)">, the average likelihood over the prior<sup>1</sup>. <img src="https://latex.codecogs.com/png.latex?%0AP(p%7Cw,n)%20=%20%5Cfrac%7BP(w%7Cp)P(p)%7D%7BP(w)%7D%0A"></p>
-</section><section id="making-the-model-go" class="level3"><h3 class="anchored" data-anchor-id="making-the-model-go">Making the model go</h3>
-<p>The core of the model, its motor, conditions the prior on the data, which can be done without forcing simple and rigid forms of prior that are easy to work with in three of many ways:</p>
-<ul>
-<li>Grid approximation
-<ul>
-<li>continuous parameters</li>
-<li>only useful as a teaching tool</li>
-<li>Scales very poorly</li>
-<li>define the grid: how many points to use in estimating the posterior, then make a list of parameters in the grid.</li>
-<li>compute the value of the prior at each parameter value on the grid</li>
-<li>compute the unstandardized posterior at each parameter value</li>
-<li>standardize the posterior</li>
-</ul>
-</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Setting global parameter for base plots</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>bg <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Define the grid</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,length.out <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># define the prior</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">prior</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># compute the likelihood @ each value on the grid</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>,prob <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># compute product of likelihood and prior</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">unstd_posterior</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">prior</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># standardize the posterior</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">posterior</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span>,<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">posterior</span>, type <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>,</span>
-<span>     bty<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"n"</span>,</span>
-<span>     pch <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">16</span>,</span>
-<span>     col <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#7c225c"</span>,</span>
-<span>     family <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">font_family</span>,</span>
-<span>     xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability of water"</span>,</span>
-<span>     ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"20 points"</span>, family <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="index_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># You can try sparser (&lt;20) or denser grids (&gt;100). The correct density </span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># for your grid depends on how accurate you want your approximation to be.</span></span></code></pre></div>
-</div>
-<ul>
-<li>Quadratic approximation
-<ul>
-<li>Called quadratic approximation because the log of a normal distribution forms a parabola</li>
-<li>the posterior distribution can be approximated by a Gaussian, under general conditions</li>
-<li>We can make use of only two parameters, its center and spread</li>
-<li>Find the peak of the posterior (its center), then estimate the curvature near the peak</li>
-<li>compute quadratic approximation using this estimate</li>
-<li>as <em>n</em> increases, the quadratic approximation gets better</li>
-<li>equivalent to maximum likelihood estimate (MLE) and its standard error</li>
-</ul>
-</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Setting global parameter for base plots</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>bg <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">rethinking</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">globe_quad_approx</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/rethinking/man/quap.html">map</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span>  </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/list.html">alist</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span>    </span>
-<span>    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">w</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>,<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># binomial likelihood</span></span>
-<span>    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Uniform.html">dunif</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># uniform prior</span></span>
-<span>  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>  data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>w <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># display summary of quad. approximation</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/pkg/rethinking/man/precis.html">precis</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">globe_quad_approx</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#&gt;    mean    sd  5.5% 94.5%</span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#&gt; p 0.667 0.157 0.416 0.918</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Compare the quad. approximation to the analytical solution</span></span>
-<span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">w</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">n</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># exact posterior</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span></span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">x</span>,</span>
-<span>            <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">w</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,</span>
-<span>            <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">n</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">w</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>      <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,</span>
-<span>  xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"proportion water"</span>,</span>
-<span>  ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"density"</span>,</span>
-<span>  bty <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"n"</span>,</span>
-<span>  family <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># quad. approximation</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">x</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.67</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.16</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, lty <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, add <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>,</span>
-<span>      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"proportion water"</span>,</span>
-<span>      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"density"</span>,</span>
-<span>       col <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#7c225c"</span>,</span>
-<span>      bty <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"n"</span>,</span>
-<span>      family <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="index_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>MCMC
-<ul>
-<li>models for which grid or quadratic approximation are always satisfactory.</li>
-<li>doesn’t compute or approximates the posterior but draws samples from the posterior.</li>
-<li>Results in a collection of parameters and its frequencies which correspond to the posterior plausibilities.</li>
-</ul>
-</li>
-</ul></section></section><section id="practice-problems" class="level2"><h2 class="anchored" data-anchor-id="practice-problems">Practice Problems</h2>
-<section id="m1" class="level4"><h4 class="anchored" data-anchor-id="m1">2M1</h4>
-<div class="cell" data-layout-align="center">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">## 2M1(i,ii,iii)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create function to compute prior, likelihood, posterior and print posterior plot</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">trials</span>, </span>
-<span>                                  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">successes</span>,</span>
-<span>                                  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">grid_points</span>,</span>
-<span>                                  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">...</span>,</span>
-<span>                                  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">mtext_label</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NULL</span>,</span>
-<span>                                  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">xlab</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NULL</span>, </span>
-<span>                                  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">ylab</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NULL</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span>  </span>
-<span>  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">args</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">...</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>  </span>
-<span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Define the grid</span></span>
-<span>  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, length.out <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">grid_points</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>  </span>
-<span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Define the prior</span></span>
-<span>  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">prior</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"prior"</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"><a href="https://mc-stan.org/posterior/reference/match.html">%in%</a></span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">args</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">args</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">prior</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">else</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">grid_points</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>  </span>
-<span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Ensure the prior length matches grid_points</span></span>
-<span>  <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">prior</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">grid_points</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span></span>
-<span>    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Length of prior must match grid_points"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>  <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span>  </span>
-<span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Compute the likelihood for each value in the grid</span></span>
-<span>  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">successes</span>,<span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">trials</span>,prob <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>  </span>
-<span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Compute unstandardized posterior</span></span>
-<span>  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">unstd_posterior</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">likelihood</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">prior</span></span>
-<span>  </span>
-<span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Standardize posterior</span></span>
-<span>  <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">posterior</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">unstd_posterior</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>  </span>
-<span>  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span>, <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">posterior</span>, type <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"b"</span>,</span>
-<span>       bty <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"n"</span>,</span>
-<span>         xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">xlab</span>,</span>
-<span>         ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">ylab</span>,</span>
-<span>       pch <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">16</span>, </span>
-<span>       col <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#7c225c"</span>,</span>
-<span>       family <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">mtext_label</span>, </span>
-<span>          family <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">font_family</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>    </span>
-<span>    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Placement of x-axis</span></span>
-<span>    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, lwd <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span>    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Placement of y-axis</span></span>
-<span>    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, lwd <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>mfrow <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, </span>
-<span>    bg <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>,</span>
-<span>                      mtext_label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"100 %success"</span>,</span>
-<span>                      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability water"</span>,</span>
-<span>                      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>,</span>
-<span>                      mtext_label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"75% success"</span>,</span>
-<span>                      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability water"</span>,</span>
-<span>                      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>,</span>
-<span>                      mtext_label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"71% success"</span>,</span>
-<span>                      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability water"</span>,</span>
-<span>                      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-</details><div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="index_files/figure-html/medium-problems-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/medium-problems-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="m2" class="level4"><h4 class="anchored" data-anchor-id="m2">2M2</h4>
-<div class="cell" data-layout-align="center">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Setting global parameter for base plots</span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span>mfrow <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>, bg <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#Fffff2"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># 2M2 - assume a prior equal to zero when p &lt; 0.5 </span></span>
-<span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># and a positive constant when p &gt;= 0.5</span></span>
-<span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,length.out <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,</span>
-<span>                      grid_points <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>,</span>
-<span>                      prior <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>                      mtext_label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"100% success"</span>,</span>
-<span>                      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability water"</span>,</span>
-<span>                      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,</span>
-<span>                      grid_points <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>,</span>
-<span>                      prior <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>                      mtext_label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"75% success"</span>,</span>
-<span>                      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability water"</span>,</span>
-<span>                      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span></span>
-<span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">create_posterior_plot</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>,</span>
-<span>                      grid_points <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>,</span>
-<span>                      prior <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">(</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">p_grid</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.5</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span>,</span>
-<span>                      mtext_label <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"71% success"</span>,</span>
-<span>                      xlab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"probability water"</span>,</span>
-<span>                      ylab <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"posterior probability"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span></code></pre></div>
-</details><div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="index_files/figure-html/medium-probs-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/index_files/figure-html/medium-probs-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="m3" class="level4"><h4 class="anchored" data-anchor-id="m3">2M3</h4>
-<p>Show that the posterior probability of tossing the Earth given a land observation is <img src="https://latex.codecogs.com/png.latex?P(E%7CL)%20=%20.23"> if the probability of observing water on the Earth is <img src="https://latex.codecogs.com/png.latex?P(W%7CE)%20=%20.7"> and on Mars <img src="https://latex.codecogs.com/png.latex?P(W%7CM)%20=%200">. Assume <img src="https://latex.codecogs.com/png.latex?P(E)%20%20=.5"></p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0AL%20=%20Land,%20W%20=%20Water,%20E%20=%20Earth,%20M%20=%20Mars%20%5C%5C%0A%5C%5C%0AP(L%7CE)%20=%200.3%20%5C%5C%0AP(E)%20=%200.5%20%5C%5C%0AP(M)%20=%200.5%20%5C%5C%0AP(L%7CM)%20=%201%20%5C%5C%20%5C%5C%0AP(E%7CL)%20=%20%5Cfrac%7BP(L%7CE)P(E)%7D%7BP(L)%7D%5C%5C%20%5C%5C%0AP(E%7CL)%20=%20%5Cfrac%7B.3%5Ctimes%20.5%7D%7B(0.3%20%5Ctimes%20.5%20+%201%5Ctimes%20.5)%7D%5C%5C%20%5C%5C%0AP(E%7CL)%20=%20.231%0A%5Cend%7Bsplit%7D%0A"></p>
-
-
-<!-- -->
-
-</section></section><div id="quarto-appendix"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-<ol>
-<li id="fn1"><p><img src="https://latex.codecogs.com/png.latex?P(w)%20=%20E(P(w%7Cp))%20=%20%5Cint%20P(w%7Cp)P(p)%5Cpartial%20p">↩︎</p></li>
-</ol></section></div> ]]></description>
-  <guid>https://learn.jpmonteagudo.com/learn/advanceR/Stat_Rethinking/ch1_3/</guid>
-  <pubDate>Thu, 10 Oct 2024 02:57:36 GMT</pubDate>
+  <pubDate>Sat, 01 Jun 2024 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

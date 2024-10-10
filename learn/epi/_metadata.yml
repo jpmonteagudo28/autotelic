@@ -9,6 +9,8 @@ format:
     code-tools: true
     quarto-template-params:
       banner-header-class: "blog-post"
+    template-partials:
+      - /html/learn/title-block.html
 
 # Default for table of contents
 toc: false
@@ -28,5 +30,5 @@ execute:
   message: false
   warning: false
   
-include-back-link: true
+include-back-link: false
 

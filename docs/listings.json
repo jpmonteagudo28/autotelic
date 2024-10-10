@@ -1,8 +1,8 @@
 [
   {
-    "listing": "/learn/epi/index.html",
+    "listing": "/learn/stats/index.html",
     "items": [
-      "/learn/epi/epi_des/chap1_2/index.html"
+      "/learn/stats/glm/chap1_2/index.html"
     ]
   },
   {
@@ -13,9 +13,9 @@
     ]
   },
   {
-    "listing": "/learn/art/index.html",
+    "listing": "/learn/epi/index.html",
     "items": [
-      "/learn/art/taoc/chap1_2/index.html"
+      "/learn/epi/epi_des/chap1_2/index.html"
     ]
   }
 ]

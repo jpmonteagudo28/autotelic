@@ -1,5 +1,5 @@
 ---
-title: "Arts & Thangs"
+title: "Stats & Thangs"
 # date: "may, 2024"
 # date-format: "MMM, YY"
 format:
@@ -15,7 +15,7 @@ engine: knitr
 freeze: false
 listing:
   - id: chapters
-    contents: "taoc/**/index.qmd"
+    contents: "glm/**/index.qmd"
     feed: true
     sort: false
     template: ../../html/learn/listing.ejs
@@ -30,7 +30,7 @@ listing:
 }
 ```
 
-## The Art of Calligraphy
+## Generalized Linear Models
 
 ::: {#chapters}
 :::
