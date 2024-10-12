@@ -24,14 +24,11 @@ editor:
 ```{r setup, include = FALSE}
 library(methods)
 library(here)
-# Use custom font
-library(showtext)
-font_add_google("Montserrat", "monse")
-# Automatically use custom font in every plot
-# package version > 0.9 to use with R base graphics
-showtext_auto()
-font_family <- "monse"
 
+utils <- here::here("learn",
+                    "advanceR","Stat_Rethinking",
+                    "utils.R")
+source(utils)
 
 set.seed(2899)
 
@@ -39,8 +36,9 @@ knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,
                       fig.width = 5.5, fig.height = (6 * 0.618),
                       out.width = "90%", collapse = TRUE, 
                       cache = TRUE, comment = "#>",
-                      autodep = TRUE)
-
+                      autodep = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
 
 options(digits = 3,
         scipen = 999,
@@ -72,3 +70,17 @@ options(
   - Use Bayes to logically deduce impact of cue on status of hypothesis. 
       - Base rate at which hypotheses are true is small
   - Improving science requires better thinking, **not better testing**
+
+* First thing we need is a sample from the globe-tossing problem. Let's generate it.
+
+```{r, echo = TRUE}
+set_plot_theme()
+font_family <- set_plot_font("Montserrat")
+
+create_posterior_plot(9,6,1000,
+                      mtext_label = "1000 points",
+                      xlab = "proportion of water",
+                      ylab = "posterior probability",
+                      lwd = 0.5)
+
+```
